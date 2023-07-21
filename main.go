@@ -60,5 +60,8 @@ func main() {
 
 	// Execute the cobra command which prints the output from "Run:" function.
 
-	cobraCommand.Execute()
+	err := cobraCommand.Execute()
+	if err != nil {
+		panic(err)
+	}
 }
