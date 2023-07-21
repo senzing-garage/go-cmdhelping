@@ -8,13 +8,14 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// Performs cobra.Flags.<datatype> operations on a list of contextVariables.
 func Init(cobraCommand *cobra.Command, contextVariables []option.ContextVariable) {
-
 	for _, contextVariable := range contextVariables {
 		SetCobraFlag(cobraCommand, contextVariable)
 	}
 }
 
+// Performs cobra.Flag.<datatype> on a option.ContextVariable.
 func SetCobraFlag(cobraCommand *cobra.Command, contextVariable option.ContextVariable) {
 	switch contextVariable.Type {
 	case optiontype.Bool:

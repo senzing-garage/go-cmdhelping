@@ -63,9 +63,9 @@ func loadOptions(cobraCommand *cobra.Command, contextVariables []option.ContextV
 			}
 		}
 	}
-
 }
 
+// A function that can be wrapped for use by cobra.Command.PreRun.
 func PreRun(cobraCommand *cobra.Command, args []string, configName string, contextVariables []option.ContextVariable) {
 	loadConfigurationFile(cobraCommand, configName)
 	loadOptions(cobraCommand, contextVariables)

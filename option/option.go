@@ -7,6 +7,8 @@ import (
 	"github.com/senzing/go-cmdhelping/option/optiontype"
 )
 
+// Alter the default value of an option.ContextVariable.
+// Useful when including an option.ContextVariable a []option.ContextVariable.
 func (v ContextVariable) SetDefault(newDefault any) ContextVariable {
 	v.Default = newDefault
 	return v

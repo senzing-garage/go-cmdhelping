@@ -33,8 +33,7 @@ func main() {
 	// Initialize viper.
 
 	viper.AutomaticEnv()
-	replacer := strings.NewReplacer("-", "_")
-	viper.SetEnvKeyReplacer(replacer)
+	viper.SetEnvKeyReplacer(strings.NewReplacer("-", "_"))
 	viper.SetEnvPrefix(constant.SetEnvPrefix)
 
 	// Initialize cobra.
@@ -59,7 +58,7 @@ func main() {
 
 	cmdhelper.PreRun(cobraCommand, os.Args, Use, ContextVariables)
 
-	// Execute the cobra command which prints the output.
+	// Execute the cobra command which prints the output from "Run:" function.
 
 	cobraCommand.Execute()
 }

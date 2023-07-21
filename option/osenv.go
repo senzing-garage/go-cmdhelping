@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// If the environment variable exists, return its value.  If not, return the default value.
 func OsLookupEnvBool(envar string, aDefault bool) bool {
 	resultString, isSet := os.LookupEnv(envar)
 	if !isSet {
@@ -18,6 +19,7 @@ func OsLookupEnvBool(envar string, aDefault bool) bool {
 	return result
 }
 
+// If the environment variable exists, return its value.  If not, return the default value.
 func OsLookupEnvInt(envar string, aDefault int) int {
 	resultString, isSet := os.LookupEnv(envar)
 	if !isSet {
@@ -30,6 +32,7 @@ func OsLookupEnvInt(envar string, aDefault int) int {
 	return result
 }
 
+// If the environment variable exists, return its value.  If not, return the default value.
 func OsLookupEnvString(envar string, aDefault string) string {
 	result, isSet := os.LookupEnv(envar)
 	if !isSet {
