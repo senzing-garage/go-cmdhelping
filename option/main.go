@@ -1,6 +1,6 @@
 package option
 
-import "github.com/senzing/go-common/option/optiontype"
+import "github.com/senzing/go-cmdhelping/option/optiontype"
 
 type ContextVariable struct {
 	Default any                   `json:"default"`

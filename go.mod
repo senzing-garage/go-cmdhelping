@@ -3,8 +3,6 @@ module github.com/senzing/go-cmdhelping
 go 1.20
 
 require (
-	github.com/senzing/go-common v0.2.4
-	github.com/senzing/senzing-tools v0.3.0
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
 	github.com/stretchr/testify v1.8.4

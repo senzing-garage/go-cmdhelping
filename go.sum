@@ -150,10 +150,6 @@ github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFR
 github.com/rogpeppe/go-internal v1.10.0 h1:TMyTOH3F/DB16zRVcYyreMH6GnZZrwQVAoYjRBZyWFQ=
 github.com/rogpeppe/go-internal v1.10.0/go.mod h1:UQnix2H7Ngw/k4C5ijL5+65zddjncjaFoBhdsK/akog=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
-github.com/senzing/go-common v0.2.4 h1:aWMZrdfzql8KzjsB/pbRLTbu7RgLx9jXWkfJfKlsg2k=
-github.com/senzing/go-common v0.2.4/go.mod h1:6qV7VjigHkBnx/kNicAbfavg/Lt4ssPYiILsaeRHk5c=
-github.com/senzing/senzing-tools v0.3.0 h1:2zufN3jhidK2n7k7BFcORnEEdXMxg/teSQiJVB37eoQ=
-github.com/senzing/senzing-tools v0.3.0/go.mod h1:iYZ4cM4XKktH1mcr3D6UXsb0hZJ6FSq7gYAYUxRMYeA=
 github.com/spf13/afero v1.9.5 h1:stMpOSZFs//0Lv29HduCmli3GUfpFoF3Y1Q/aXj/wVM=
 github.com/spf13/afero v1.9.5/go.mod h1:UBogFpq8E9Hx+xc5CNTTEpTnuHVmXDwZcZcE1eb/UhQ=
 github.com/spf13/cast v1.5.1 h1:R+kOtfhWQE6TVQzY+4D7wJLBgkdVasCEFxSUBYBYIlA=

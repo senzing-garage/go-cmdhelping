@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/senzing/go-common/option/optiontype"
+	"github.com/senzing/go-cmdhelping/option/optiontype"
 )
 
 func (v ContextVariable) SetDefault(newDefault any) ContextVariable {
