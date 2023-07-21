@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/senzing/go-cmdhelping/option/optiontype"
+	"github.com/senzing/go-common/option"
 )
 
 // Alter the default value of an option.ContextVariable.
@@ -157,6 +158,13 @@ var EngineModuleName = ContextVariable{
 	Arg:     "engine-module-name",
 	Type:    optiontype.String,
 }
+var ErrorId = option.ContextVariable{
+	Arg:     "error-id",
+	Default: option.OsLookupEnvString("SENZING_TOOLS_ERROR_ID", ""),
+	Envar:   "SENZING_TOOLS_ERROR_ID",
+	Help:    "Give an explanation of a specific Senzing error [%s]",
+	Type:    optiontype.String,
+}
 
 var GrpcPort = ContextVariable{
 	Default: OsLookupEnvInt("SENZING_TOOLS_GRPC_PORT", 8260),
@@ -307,6 +315,14 @@ var SupportPath = ContextVariable{
 	Envar:   "SENZING_TOOLS_SUPPORT_PATH",
 	Help:    "Path to SenzingAPI's data directory [%s]",
 	Arg:     "support-path",
+	Type:    optiontype.String,
+}
+
+var TtyOnly = option.ContextVariable{
+	Arg:     "tty-only",
+	Default: option.OsLookupEnvString("SENZING_TOOLS_TTY_ONLY", ""),
+	Envar:   "SENZING_TOOLS_TTY_ONLY",
+	Help:    "Output confined to terminal (TTY) [%s]",
 	Type:    optiontype.String,
 }
 
