@@ -320,10 +320,10 @@ var SupportPath = ContextVariable{
 
 var TtyOnly = ContextVariable{
 	Arg:     "tty-only",
-	Default: OsLookupEnvString("SENZING_TOOLS_TTY_ONLY", ""),
+	Default: OsLookupEnvBool("SENZING_TOOLS_TTY_ONLY", false),
 	Envar:   "SENZING_TOOLS_TTY_ONLY",
 	Help:    "Output confined to terminal (TTY) [%s]",
-	Type:    optiontype.String,
+	Type:    optiontype.Bool,
 }
 
 var VisibilityPeriodInSeconds = ContextVariable{
