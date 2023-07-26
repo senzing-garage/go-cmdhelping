@@ -198,12 +198,20 @@ var InputFileType = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var InputURL = ContextVariable{
+var InputUrl = ContextVariable{
 	Arg:     "input-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_INPUT_URL", ""),
 	Envar:   "SENZING_TOOLS_INPUT_URL",
 	Help:    "Input URL used for processing [%s]",
 	Type:    optiontype.String,
+}
+
+var JsonOutput = ContextVariable{
+	Arg:     "json-output",
+	Default: OsLookupEnvBool("SENZING_TOOLS_JSON_OUTPUT", false),
+	Envar:   "SENZING_TOOLS_JSON_OUTPUT",
+	Help:    "Only output JSON messages  [%s]",
+	Type:    optiontype.Bool,
 }
 
 var LicenseStringBase64 = ContextVariable{
@@ -254,7 +262,7 @@ var ObserverUrl = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var OutputURL = ContextVariable{
+var OutputUrl = ContextVariable{
 	Arg:     "output-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_OUTPUT_URL", ""),
 	Envar:   "SENZING_TOOLS_OUTPUT_URL",
