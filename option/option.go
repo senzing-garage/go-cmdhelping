@@ -206,6 +206,14 @@ var InputURL = ContextVariable{
 	Type:    optiontype.String,
 }
 
+var JSONOutput = ContextVariable{
+	Arg:     "json-output",
+	Default: OsLookupEnvBool("SENZING_TOOLS_JSON_OUTPUT", false),
+	Envar:   "SENZING_TOOLS_JSON_OUTPUT",
+	Help:    "Only output JSON messages  [%s]",
+	Type:    optiontype.Bool,
+}
+
 var LicenseStringBase64 = ContextVariable{
 	Arg:     "license-string-base64",
 	Default: OsLookupEnvString("SENZING_TOOLS_LICENSE_STRING_BASE64", ""),
