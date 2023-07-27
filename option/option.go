@@ -168,7 +168,7 @@ var ErrorId = ContextVariable{
 
 var GrpcPort = ContextVariable{
 	Arg:     "grpc-port",
-	Default: OsLookupEnvInt("SENZING_TOOLS_GRPC_PORT", 8260),
+	Default: OsLookupEnvInt("SENZING_TOOLS_GRPC_PORT", 8261),
 	Envar:   "SENZING_TOOLS_GRPC_PORT",
 	Help:    "Port used to serve gRPC [%s]",
 	Type:    optiontype.Int,
@@ -184,7 +184,7 @@ var GrpcUrl = ContextVariable{
 
 var HttpPort = ContextVariable{
 	Arg:     "http-port",
-	Default: OsLookupEnvInt("SENZING_TOOLS_HTTP_PORT", 8261),
+	Default: OsLookupEnvInt("SENZING_TOOLS_HTTP_PORT", 8260),
 	Envar:   "SENZING_TOOLS_HTTP_PORT",
 	Help:    "Port to serve HTTP [%s]",
 	Type:    optiontype.Int,
@@ -252,6 +252,14 @@ var ObserverOrigin = ContextVariable{
 	Envar:   "SENZING_TOOLS_OBSERVER_ORIGIN",
 	Help:    "Identify this instance to the Observer [%s]",
 	Type:    optiontype.String,
+}
+
+var ObserverGrpcPort = ContextVariable{
+	Arg:     "observer-grpc-port",
+	Default: OsLookupEnvInt("SENZING_TOOLS_OBSERVER_GRPC_PORT", 8258),
+	Envar:   "SENZING_TOOLS_OBSERVER_GRPC_PORT",
+	Help:    "Port to serve gRPC for receiving observer messages [%s]",
+	Type:    optiontype.Int,
 }
 
 var ObserverUrl = ContextVariable{
