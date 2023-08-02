@@ -328,7 +328,7 @@ var ServerAddress = ContextVariable{
 
 var SupportPath = ContextVariable{
 	Arg:     "support-path",
-	Default: OsLookupEnvString("SENZING_TOOLS_SUPPORT_PATH", "8261"),
+	Default: OsLookupEnvString("SENZING_TOOLS_SUPPORT_PATH", ""),
 	Envar:   "SENZING_TOOLS_SUPPORT_PATH",
 	Help:    "Path to SenzingAPI's data directory [%s]",
 	Type:    optiontype.String,
