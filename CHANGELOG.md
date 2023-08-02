@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.1.4] - 2023-08-02
+
+### Changed in 0.1.4
+
+- Fixed default value of `SENZING_TOOLS_SUPPORT_PATH`
+
 ## [0.1.3] - 2023-07-27
 
 ### Added to 0.1.3
