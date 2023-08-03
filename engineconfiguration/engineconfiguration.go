@@ -2,7 +2,6 @@ package engineconfiguration
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/senzing/go-cmdhelping/option"
 	"github.com/senzing/go-common/g2engineconfigurationjson"
@@ -22,8 +21,6 @@ func BuildSenzingEngineConfigurationJson(ctx context.Context, aViper *viper.Vipe
 			"senzingDirectory":    aViper.GetString(option.SenzingDirectory.Arg),
 			"supportPath":         aViper.GetString(option.SupportPath.Arg),
 		}
-
-		fmt.Printf(">>>>  options: %+v\n", options)
 		result, err = g2engineconfigurationjson.BuildSimpleSystemConfigurationJsonUsingMap(options)
 	}
 	return result, err
