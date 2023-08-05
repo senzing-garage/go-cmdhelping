@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.1.5] - 2023-08-05
+
+### Changed in 0.1.5
+
+- Refactored to `template-go`
+- Updated dependencies
+  - github.com/senzing/go-common v0.2.11
+
 ## [0.1.4] - 2023-08-02
 
 ### Changed in 0.1.4
