@@ -198,7 +198,7 @@ var InputFileType = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var InputUrl = ContextVariable{
+var InputURL = ContextVariable{
 	Arg:     "input-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_INPUT_URL", ""),
 	Envar:   "SENZING_TOOLS_INPUT_URL",
@@ -206,7 +206,7 @@ var InputUrl = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var JsonOutput = ContextVariable{
+var JSONOutput = ContextVariable{
 	Arg:     "json-output",
 	Default: OsLookupEnvBool("SENZING_TOOLS_JSON_OUTPUT", false),
 	Envar:   "SENZING_TOOLS_JSON_OUTPUT",
@@ -270,7 +270,7 @@ var ObserverUrl = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var OutputUrl = ContextVariable{
+var OutputURL = ContextVariable{
 	Arg:     "output-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_OUTPUT_URL", ""),
 	Envar:   "SENZING_TOOLS_OUTPUT_URL",
