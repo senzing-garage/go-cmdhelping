@@ -96,15 +96,6 @@ test:
 # Run
 # -----------------------------------------------------------------------------
 
-.PHONY: docker-run
-docker-run:
-	@docker run \
-		--interactive \
-		--tty \
-		--name $(DOCKER_CONTAINER_NAME) \
-		$(DOCKER_IMAGE_NAME)
-
-
 .PHONY: run
 run:
 	@go run main.go
