@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed in 0.1.7
 
+- In `go.mod` update to `go 1.21`
 - Improved `engineconfiguration`
 
 ## [0.1.6] - 2023-08-16
