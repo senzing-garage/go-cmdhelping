@@ -13,13 +13,21 @@ func BuildSenzingEngineConfigurationJson(ctx context.Context, aViper *viper.Vipe
 	var err error = nil
 	result := aViper.GetString(option.EngineConfigurationJson.Arg)
 	if len(result) == 0 {
-		options := map[string]string{
-			"configPath":          aViper.GetString(option.ConfigPath.Arg),
-			"databaseUrl":         aViper.GetString(option.DatabaseUrl.Arg),
-			"licenseStringBase64": aViper.GetString(option.LicenseStringBase64.Arg),
-			"resourcePath":        aViper.GetString(option.ResourcePath.Arg),
-			"senzingDirectory":    aViper.GetString(option.SenzingDirectory.Arg),
-			"supportPath":         aViper.GetString(option.SupportPath.Arg),
+		optionsList := map[string]option.ContextVariable{
+			"configPath":          option.ConfigPath,
+			"databaseUrl":         option.DatabaseUrl,
+			"licenseStringBase64": option.LicenseStringBase64,
+			"resourcePath":        option.ResourcePath,
+			"senzingDirectory":    option.SenzingDirectory,
+			"supportPath":         option.SupportPath,
+		}
+		options := map[string]string{}
+		for key, contextVariable := range optionsList {
+			if aViper.IsSet(contextVariable.Arg) {
+				if aViper.GetString(contextVariable.Arg) != contextVariable.Default {
+					options[key] = aViper.GetString(contextVariable.Arg)
+				}
+			}
 		}
 		result, err = g2engineconfigurationjson.BuildSimpleSystemConfigurationJsonUsingMap(options)
 	}

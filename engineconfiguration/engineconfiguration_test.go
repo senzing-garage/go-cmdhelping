@@ -19,7 +19,7 @@ func TestBuildSenzingEngineConfigurationJson(test *testing.T) {
 
 	var contextVariables = []option.ContextVariable{
 		option.ConfigPath.SetDefault("/tmp/ConfigPath"),
-		option.DatabaseUrl,
+		option.DatabaseUrl.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
 		option.ResourcePath.SetDefault("/tmp/ResourcePath"),
 		option.SenzingDirectory,
@@ -38,5 +38,4 @@ func TestBuildSenzingEngineConfigurationJson(test *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-
 }
