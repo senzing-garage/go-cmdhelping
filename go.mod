@@ -1,6 +1,6 @@
 module github.com/senzing/go-cmdhelping
 
-go 1.20
+go 1.21
 
 require (
 	github.com/senzing/go-common v0.2.13
