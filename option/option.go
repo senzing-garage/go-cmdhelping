@@ -232,7 +232,7 @@ var LogLevel = ContextVariable{
 
 var MonitoringPeriodInSeconds = ContextVariable{
 	Arg:     "monitoring-period-in-seconds",
-	Default: OsLookupEnvInt("SENZING_TOOLS_MONITORING_PERIOD_IN_SECONDS", 60),
+	Default: OsLookupEnvInt("SENZING_TOOLS_MONITORING_PERIOD_IN_SECONDS", 600),
 	Envar:   "SENZING_TOOLS_MONITORING_PERIOD_IN_SECONDS",
 	Help:    "Print monitoring log messages with the period given in seconds [%s]",
 	Type:    optiontype.Int,
