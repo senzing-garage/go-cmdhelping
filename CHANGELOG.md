@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.1.9] - 2023-10-17
+
+### Changed in 0.1.9
+
+- Refactor to [template-go](https://github.com/Senzing/template-go)
+- Update dependencies
+  - github.com/senzing/go-common v0.3.1
+  - github.com/spf13/viper v1.17.0
+
 ## [0.1.8] - 2023-08-29
 
 ### Changed in 0.1.8
