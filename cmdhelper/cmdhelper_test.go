@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/senzing/go-cmdhelping/option"
-	"github.com/senzing/go-cmdhelping/option/optiontype"
+	"github.com/senzing-garage/go-cmdhelping/option"
+	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
 )
