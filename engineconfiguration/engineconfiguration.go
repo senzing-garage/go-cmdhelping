@@ -3,8 +3,8 @@ package engineconfiguration
 import (
 	"context"
 
-	"github.com/senzing/go-cmdhelping/option"
-	"github.com/senzing/go-common/g2engineconfigurationjson"
+	"github.com/senzing-garage/go-cmdhelping/option"
+	"github.com/senzing-garage/go-common/g2engineconfigurationjson"
 	"github.com/spf13/viper"
 )
 

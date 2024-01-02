@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/senzing/go-cmdhelping/option/optiontype"
+	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 )
 
 // Alter the default value of an option.ContextVariable.

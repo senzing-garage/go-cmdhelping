@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/senzing/go-cmdhelping/constant"
-	"github.com/senzing/go-cmdhelping/option"
+	"github.com/senzing-garage/go-cmdhelping/constant"
+	"github.com/senzing-garage/go-cmdhelping/option"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
