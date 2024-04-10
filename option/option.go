@@ -62,43 +62,43 @@ var EnableAll = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-var EnableG2config = ContextVariable{
-	Arg:     "enable-g2config",
-	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_G2CONFIG", false),
-	Envar:   "SENZING_TOOLS_ENABLE_G2CONFIG",
-	Help:    "Enable G2Config service [%s]",
+var EnableSzConfig = ContextVariable{
+	Arg:     "enable-szconfig",
+	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SZCONFIG", false),
+	Envar:   "SENZING_TOOLS_ENABLE_SZCONFIG",
+	Help:    "Enable SzConfig service [%s]",
 	Type:    optiontype.Bool,
 }
 
-var EnableG2configmgr = ContextVariable{
-	Arg:     "enable-g2configmgr",
-	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_G2CONFIGMGR", false),
-	Envar:   "SENZING_TOOLS_ENABLE_G2CONFIGMGR",
-	Help:    "Enable G2ConfigMgr service [%s]",
+var EnableSzConfigManager = ContextVariable{
+	Arg:     "enable-szconfigmanager",
+	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SZCONFIGMANAGER", false),
+	Envar:   "SENZING_TOOLS_ENABLE_SZCONFIGMANAGER",
+	Help:    "Enable SZConfigManager service [%s]",
 	Type:    optiontype.Bool,
 }
 
-var EnableG2diagnostic = ContextVariable{
-	Arg:     "enable-g2diagnostic",
-	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_G2DIAGNOSTIC", false),
-	Envar:   "SENZING_TOOLS_ENABLE_G2DIAGNOSTIC",
-	Help:    "Enable G2Diagnostic service [%s]",
+var EnableSzDiagnostic = ContextVariable{
+	Arg:     "enable-szdiagnostic",
+	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SZDIAGNOSTIC", false),
+	Envar:   "SENZING_TOOLS_ENABLE_SZDIAGNOSTIC",
+	Help:    "Enable SzDiagnostic service [%s]",
 	Type:    optiontype.Bool,
 }
 
-var EnableG2engine = ContextVariable{
-	Arg:     "enable-g2engine",
-	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_G2ENGINE", false),
-	Envar:   "SENZING_TOOLS_ENABLE_G2ENGINE",
-	Help:    "Enable G2Config service [%s]",
+var EnableSzEngine = ContextVariable{
+	Arg:     "enable-szengine",
+	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SZENGINE", false),
+	Envar:   "SENZING_TOOLS_ENABLE_SZENGINE",
+	Help:    "Enable SzEngine service [%s]",
 	Type:    optiontype.Bool,
 }
 
-var EnableG2product = ContextVariable{
-	Arg:     "enable-g2product",
-	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_G2PRODUCT", false),
-	Envar:   "SENZING_TOOLS_ENABLE_G2PRODUCT",
-	Help:    "Enable G2Config service [%s]",
+var EnableSzProduct = ContextVariable{
+	Arg:     "enable-szproduct",
+	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SZPRODUCT", false),
+	Envar:   "SENZING_TOOLS_ENABLE_SZPRODUCT",
+	Help:    "Enable SZProduct service [%s]",
 	Type:    optiontype.Bool,
 }
 

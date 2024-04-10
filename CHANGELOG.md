@@ -10,7 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [0.2.1] - 2024-04-10
+
+### Changed in 0.2.1
+
 ## [0.2.0] - 2024-01-02
+
+- Migrated from `github.com/senzing-garage/go-common` to `github.com/senzing-garage/go-helpers`
 
 ### Changed in 0.2.0
 
