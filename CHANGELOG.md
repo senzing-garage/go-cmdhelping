@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Migrated from `G2` to `Sz` prefixes
 - Update dependencies
-  - github.com/senzing-garage/go-helpers v0.5.0
+  - github.com/senzing-garage/go-helpers v0.5.1
   - github.com/stretchr/testify v1.9.0
 
 ## [0.2.0] - 2024-01-02
