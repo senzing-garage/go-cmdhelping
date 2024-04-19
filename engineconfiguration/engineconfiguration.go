@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/senzing-garage/go-cmdhelping/option"
-	"github.com/senzing-garage/go-common/g2engineconfigurationjson"
+	"github.com/senzing-garage/go-helpers/engineconfigurationjson"
 	"github.com/spf13/viper"
 )
 
@@ -29,14 +29,14 @@ func BuildSenzingEngineConfigurationJson(ctx context.Context, aViper *viper.Vipe
 				}
 			}
 		}
-		result, err = g2engineconfigurationjson.BuildSimpleSystemConfigurationJsonUsingMap(options)
+		result, err = engineconfigurationjson.BuildSimpleSystemConfigurationJsonUsingMap(options)
 	}
 	return result, err
 }
 
-// Convenience method for g2engineconfigurationjson.VerifySenzingEngineConfigurationJson
+// Convenience method for engineconfigurationjson.VerifySenzingEngineConfigurationJson
 func VerifySenzingEngineConfigurationJson(ctx context.Context, engineConfigurationJson string) error {
-	return g2engineconfigurationjson.VerifySenzingEngineConfigurationJson(ctx, engineConfigurationJson)
+	return engineconfigurationjson.VerifySenzingEngineConfigurationJson(ctx, engineConfigurationJson)
 }
 
 // Given variables in Viper, construct and verify the Senzing engine configuration JSON.
