@@ -10,9 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-## [0.2.1] - 2024-04-10
+## [0.2.1] - 2024-04-19
 
 ### Changed in 0.2.1
+
+- Migrated from `G2` to `Sz` prefixes
+- Update dependencies
+  - github.com/senzing-garage/go-helpers v0.5.0
+  - github.com/stretchr/testify v1.9.0
 
 ## [0.2.0] - 2024-01-02
 
