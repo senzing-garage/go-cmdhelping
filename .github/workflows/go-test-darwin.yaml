@@ -7,12 +7,13 @@ permissions:
 
 jobs:
   go-test-darwin:
-    name: "go test with OS: ${{ matrix.os }}; Go: ${{ matrix.go }}"
+    name: "go test with Senzing: ${{ matrix.senzingapi-version }}; OS: ${{ matrix.os }}; Go: ${{ matrix.go }}"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         go: ["1.21"]
         os: [macos-13]
+        senzingapi-version: [staging-v4]
 
     steps:
       - name: checkout repository
@@ -24,6 +25,11 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
+
+      - name: install Senzing API
+        uses: senzing-factory/github-action-install-senzing-api@v3
+        with:
+          senzingapi-version: ${{ matrix.senzingapi-version }}
 
       - name: run go test
         run: go test -v -p 1 -coverprofile=./cover.out -covermode=atomic -coverpkg=./... ./...
