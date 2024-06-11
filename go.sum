@@ -38,6 +38,8 @@ github.com/sagikazarmark/slog-shim v0.1.0 h1:diDBnUNK9N/354PgrxMywXnAwEr1QZcOr6g
 github.com/sagikazarmark/slog-shim v0.1.0/go.mod h1:SrcSrq8aKtyuqEI1uvTDTK1arOWRIczQRv+GVI1AkeQ=
 github.com/senzing-garage/go-helpers v0.5.1 h1:ezVW5oAHihfG2QVpe/Ooyz8q9UPrCuDdg+W43wk9phY=
 github.com/senzing-garage/go-helpers v0.5.1/go.mod h1:Gx66fvdAqt4YVf1KVCjzK2Rmr/C7qe5zaZW4VQ3goyM=
+github.com/senzing-garage/go-helpers v0.5.2 h1:MuXQcy0sw/+v5LmDY1Z8wwh6t1DCtKNgJj7nkDu0yxY=
+github.com/senzing-garage/go-helpers v0.5.2/go.mod h1:QwQEA1FZVfpU7lLGN47iQDoMug1JCfsRDIbLI9ve+rA=
 github.com/sourcegraph/conc v0.3.0 h1:OQTbbt6P72L20UqAkXXuLOj79LfEanQ+YQFNpLA9ySo=
 github.com/sourcegraph/conc v0.3.0/go.mod h1:Sdozi7LEKbFPqYX2/J+iBAM6HpqSLTASQIKqDmF7Mt0=
 github.com/spf13/afero v1.11.0 h1:WJQKhtpdm3v2IzqG8VMqrr6Rf3UYpEF239Jy9wNepM8=

@@ -1,15 +1,15 @@
-package engineconfiguration
+package settings
 
 import (
 	"context"
 
 	"github.com/senzing-garage/go-cmdhelping/option"
-	"github.com/senzing-garage/go-helpers/engineconfigurationjson"
+	"github.com/senzing-garage/go-helpers/settings"
 	"github.com/spf13/viper"
 )
 
 // Given variables in Viper, construct the Senzing engine configuration JSON.
-func BuildSenzingEngineConfigurationJSON(ctx context.Context, aViper *viper.Viper) (string, error) {
+func BuildSettings(ctx context.Context, aViper *viper.Viper) (string, error) {
 	_ = ctx
 	var err error
 	result := aViper.GetString(option.EngineConfigurationJSON.Arg)
@@ -30,22 +30,22 @@ func BuildSenzingEngineConfigurationJSON(ctx context.Context, aViper *viper.Vipe
 				}
 			}
 		}
-		result, err = engineconfigurationjson.BuildSimpleSystemConfigurationJsonUsingMap(options)
+		result, err = settings.BuildSimpleSettingsUsingMap(options)
 	}
 	return result, err
 }
 
-// Convenience method for engineconfigurationjson.VerifySenzingEngineConfigurationJSON
-func VerifySenzingEngineConfigurationJSON(ctx context.Context, engineConfigurationJSON string) error {
-	return engineconfigurationjson.VerifySenzingEngineConfigurationJson(ctx, engineConfigurationJSON)
+// Convenience method for engineconfigurationjson.VerifySettings
+func VerifySettings(ctx context.Context, theSettings string) error {
+	return settings.VerifySettings(ctx, theSettings)
 }
 
 // Given variables in Viper, construct and verify the Senzing engine configuration JSON.
-func BuildAndVerifySenzingEngineConfigurationJSON(ctx context.Context, aViper *viper.Viper) (string, error) {
-	senzingEngineConfigurationJSON, err := BuildSenzingEngineConfigurationJSON(ctx, aViper)
+func BuildAndVerifySettings(ctx context.Context, aViper *viper.Viper) (string, error) {
+	theSettings, err := BuildSettings(ctx, aViper)
 	if err != nil {
-		return senzingEngineConfigurationJSON, err
+		return theSettings, err
 	}
-	err = VerifySenzingEngineConfigurationJSON(ctx, senzingEngineConfigurationJSON)
-	return senzingEngineConfigurationJSON, err
+	err = VerifySettings(ctx, theSettings)
+	return theSettings, err
 }

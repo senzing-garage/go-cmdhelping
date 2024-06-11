@@ -1,4 +1,4 @@
-package engineconfiguration
+package settings
 
 import (
 	"context"
@@ -14,7 +14,7 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBuildSenzingEngineConfigurationJSON(test *testing.T) {
+func TestBuildSettings(test *testing.T) {
 	_ = test
 	ctx := context.TODO()
 
@@ -35,13 +35,13 @@ func TestBuildSenzingEngineConfigurationJSON(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildSenzingEngineConfigurationJSON(ctx, viper.GetViper())
+	_, err := BuildSettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}
 }
 
-func TestBuildAndVerifySenzingEngineConfigurationJSON(test *testing.T) {
+func TestBuildAndVerifySettings(test *testing.T) {
 	_ = test
 	ctx := context.TODO()
 
@@ -62,7 +62,7 @@ func TestBuildAndVerifySenzingEngineConfigurationJSON(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildAndVerifySenzingEngineConfigurationJSON(ctx, viper.GetViper())
+	_, err := BuildAndVerifySettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}
