@@ -9,13 +9,14 @@ import (
 )
 
 // Given variables in Viper, construct the Senzing engine configuration JSON.
-func BuildSenzingEngineConfigurationJson(ctx context.Context, aViper *viper.Viper) (string, error) {
-	var err error = nil
-	result := aViper.GetString(option.EngineConfigurationJson.Arg)
+func BuildSenzingEngineConfigurationJSON(ctx context.Context, aViper *viper.Viper) (string, error) {
+	_ = ctx
+	var err error
+	result := aViper.GetString(option.EngineConfigurationJSON.Arg)
 	if len(result) == 0 {
 		optionsList := map[string]option.ContextVariable{
 			"configPath":          option.ConfigPath,
-			"databaseUrl":         option.DatabaseUrl,
+			"databaseUrl":         option.DatabaseURL,
 			"licenseStringBase64": option.LicenseStringBase64,
 			"resourcePath":        option.ResourcePath,
 			"senzingDirectory":    option.SenzingDirectory,
@@ -34,17 +35,17 @@ func BuildSenzingEngineConfigurationJson(ctx context.Context, aViper *viper.Vipe
 	return result, err
 }
 
-// Convenience method for engineconfigurationjson.VerifySenzingEngineConfigurationJson
-func VerifySenzingEngineConfigurationJson(ctx context.Context, engineConfigurationJson string) error {
-	return engineconfigurationjson.VerifySenzingEngineConfigurationJson(ctx, engineConfigurationJson)
+// Convenience method for engineconfigurationjson.VerifySenzingEngineConfigurationJSON
+func VerifySenzingEngineConfigurationJSON(ctx context.Context, engineConfigurationJSON string) error {
+	return engineconfigurationjson.VerifySenzingEngineConfigurationJson(ctx, engineConfigurationJSON)
 }
 
 // Given variables in Viper, construct and verify the Senzing engine configuration JSON.
-func BuildAndVerifySenzingEngineConfigurationJson(ctx context.Context, aViper *viper.Viper) (string, error) {
-	senzingEngineConfigurationJson, err := BuildSenzingEngineConfigurationJson(ctx, aViper)
+func BuildAndVerifySenzingEngineConfigurationJSON(ctx context.Context, aViper *viper.Viper) (string, error) {
+	senzingEngineConfigurationJSON, err := BuildSenzingEngineConfigurationJSON(ctx, aViper)
 	if err != nil {
-		return senzingEngineConfigurationJson, err
+		return senzingEngineConfigurationJSON, err
 	}
-	err = VerifySenzingEngineConfigurationJson(ctx, senzingEngineConfigurationJson)
-	return senzingEngineConfigurationJson, err
+	err = VerifySenzingEngineConfigurationJSON(ctx, senzingEngineConfigurationJSON)
+	return senzingEngineConfigurationJSON, err
 }

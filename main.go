@@ -25,8 +25,8 @@ func main() {
 	// Define the command-line options / environment variables used for context variables.
 
 	var ContextVariables = []option.ContextVariable{
-		option.DatabaseUrl,
-		option.HttpPort,
+		option.DatabaseURL,
+		option.HTTPPort,
 		option.LogLevel,
 	}
 
@@ -43,8 +43,10 @@ func main() {
 		Short: Short,
 		Long:  Long,
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Printf("--%-12s  %s: %s\n", option.DatabaseUrl.Arg, fmt.Sprintf(option.DatabaseUrl.Help, option.DatabaseUrl.Envar), viper.GetString(option.DatabaseUrl.Arg))
-			fmt.Printf("--%-12s  %s: %d\n", option.HttpPort.Arg, fmt.Sprintf(option.HttpPort.Help, option.HttpPort.Envar), viper.GetInt(option.HttpPort.Arg))
+			_ = cmd
+			_ = args
+			fmt.Printf("--%-12s  %s: %s\n", option.DatabaseURL.Arg, fmt.Sprintf(option.DatabaseURL.Help, option.DatabaseURL.Envar), viper.GetString(option.DatabaseURL.Arg))
+			fmt.Printf("--%-12s  %s: %d\n", option.HTTPPort.Arg, fmt.Sprintf(option.HTTPPort.Help, option.HTTPPort.Envar), viper.GetInt(option.HTTPPort.Arg))
 			fmt.Printf("--%-12s  %s: %s\n", option.LogLevel.Arg, fmt.Sprintf(option.LogLevel.Help, option.LogLevel.Envar), viper.GetString(option.LogLevel.Arg))
 		},
 		Version: cmdhelper.Version("1234", "5"),

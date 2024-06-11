@@ -30,7 +30,7 @@ var Configuration = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var DatabaseUrl = ContextVariable{
+var DatabaseURL = ContextVariable{
 	Arg:     "database-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_DATABASE_URL", ""),
 	Envar:   "SENZING_TOOLS_DATABASE_URL",
@@ -102,7 +102,7 @@ var EnableSzProduct = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-var EnableSenzingChatApi = ContextVariable{
+var EnableSenzingChatAPI = ContextVariable{
 	Arg:     "enable-senzing-chat-api",
 	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SENZING_CHAT_API", false),
 	Envar:   "SENZING_TOOLS_ENABLE_SENZING_CHAT_API",
@@ -110,7 +110,7 @@ var EnableSenzingChatApi = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-var EnableSenzingRestApi = ContextVariable{
+var EnableSenzingRestAPI = ContextVariable{
 	Arg:     "enable-senzing-rest-api",
 	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SENZING_REST_API", false),
 	Envar:   "SENZING_TOOLS_ENABLE_SENZING_REST_API",
@@ -118,7 +118,7 @@ var EnableSenzingRestApi = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-var EnableSwaggerUi = ContextVariable{
+var EnableSwaggerUI = ContextVariable{
 	Arg:     "enable-swagger-ui",
 	Default: OsLookupEnvBool("SENZING_TOOLS_ENABLE_SWAGGER_UI", false),
 	Envar:   "SENZING_TOOLS_ENABLE_SWAGGER_UI",
@@ -134,7 +134,7 @@ var EnableXterm = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-var EngineConfigurationJson = ContextVariable{
+var EngineConfigurationJSON = ContextVariable{
 	Arg:     "engine-configuration-json",
 	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_CONFIGURATION_JSON", ""),
 	Envar:   "SENZING_TOOLS_ENGINE_CONFIGURATION_JSON",
@@ -158,7 +158,7 @@ var EngineModuleName = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var ErrorId = ContextVariable{
+var ErrorID = ContextVariable{
 	Arg:     "error-id",
 	Default: OsLookupEnvString("SENZING_TOOLS_ERROR_ID", ""),
 	Envar:   "SENZING_TOOLS_ERROR_ID",
@@ -174,7 +174,7 @@ var GrpcPort = ContextVariable{
 	Type:    optiontype.Int,
 }
 
-var GrpcUrl = ContextVariable{
+var GrpcURL = ContextVariable{
 	Arg:     "grpc-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_GRPC_URL", ""),
 	Envar:   "SENZING_TOOLS_GRPC_URL",
@@ -182,7 +182,7 @@ var GrpcUrl = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var HttpPort = ContextVariable{
+var HTTPPort = ContextVariable{
 	Arg:     "http-port",
 	Default: OsLookupEnvInt("SENZING_TOOLS_HTTP_PORT", 8260),
 	Envar:   "SENZING_TOOLS_HTTP_PORT",
@@ -262,7 +262,7 @@ var ObserverGrpcPort = ContextVariable{
 	Type:    optiontype.Int,
 }
 
-var ObserverUrl = ContextVariable{
+var ObserverURL = ContextVariable{
 	Arg:     "observer-url",
 	Default: OsLookupEnvString("SENZING_TOOLS_OBSERVER_URL", ""),
 	Envar:   "SENZING_TOOLS_OBSERVER_URL",
