@@ -1,3 +1,5 @@
+//go:build linux
+
 package settings
 
 import (
@@ -14,7 +16,7 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBuildSettings(test *testing.T) {
+func TestBuildAndVerifySettings(test *testing.T) {
 	_ = test
 	ctx := context.TODO()
 
@@ -35,7 +37,7 @@ func TestBuildSettings(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildSettings(ctx, viper.GetViper())
+	_, err := BuildAndVerifySettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}
