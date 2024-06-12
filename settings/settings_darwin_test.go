@@ -21,7 +21,7 @@ func TestBuildAndVerifySettings(test *testing.T) {
 	ctx := context.TODO()
 
 	var contextVariables = []option.ContextVariable{
-		option.ConfigPath.SetDefault("/opt/senzing/g2"),
+		option.ConfigPath.SetDefault("/opt/senzing/g2/etc"),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
 		option.ResourcePath.SetDefault("/opt/senzing/g2/resources"),
