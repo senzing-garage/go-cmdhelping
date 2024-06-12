@@ -158,11 +158,11 @@ var EngineModuleName = ContextVariable{
 	Type:    optiontype.String,
 }
 
-var ErrorID = ContextVariable{
-	Arg:     "error-id",
-	Default: OsLookupEnvString("SENZING_TOOLS_ERROR_ID", ""),
-	Envar:   "SENZING_TOOLS_ERROR_ID",
-	Help:    "Give an explanation of a specific Senzing error [%s]",
+var MessageID = ContextVariable{
+	Arg:     "message-id",
+	Default: OsLookupEnvString("SENZING_TOOLS_MESSAGE_ID", ""),
+	Envar:   "SENZING_TOOLS_MESSAGE_ID",
+	Help:    "Give an explanation of a specific Senzing message [%s]",
 	Type:    optiontype.String,
 }
 
