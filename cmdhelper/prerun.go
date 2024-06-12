@@ -13,7 +13,7 @@ import (
 
 // If a configuration file is present, load it.
 func loadConfigurationFile(cobraCommand *cobra.Command, configName string) {
-	configuration := ""
+	var configuration string
 	configFlag := cobraCommand.Flags().Lookup(option.Configuration.Arg)
 	if configFlag != nil {
 		configuration = configFlag.Value.String()
@@ -48,25 +48,24 @@ func loadConfigurationFile(cobraCommand *cobra.Command, configName string) {
 
 // Configure Viper with user-specified options.
 func loadOptions(cobraCommand *cobra.Command, contextVariables []option.ContextVariable) {
-	var err error = nil
+	var err error
 	viper.AutomaticEnv()
 	replacer := strings.NewReplacer("-", "_")
 	viper.SetEnvKeyReplacer(replacer)
 	viper.SetEnvPrefix(constant.SetEnvPrefix)
 
-	if contextVariables != nil {
-		for _, contextVar := range contextVariables {
-			viper.SetDefault(contextVar.Arg, contextVar.Default)
-			err = viper.BindPFlag(contextVar.Arg, cobraCommand.Flags().Lookup(contextVar.Arg))
-			if err != nil {
-				panic(err)
-			}
+	for _, contextVar := range contextVariables {
+		viper.SetDefault(contextVar.Arg, contextVar.Default)
+		err = viper.BindPFlag(contextVar.Arg, cobraCommand.Flags().Lookup(contextVar.Arg))
+		if err != nil {
+			panic(err)
 		}
 	}
 }
 
 // A function that can be wrapped for use by cobra.Command.PreRun.
 func PreRun(cobraCommand *cobra.Command, args []string, configName string, contextVariables []option.ContextVariable) {
+	_ = args
 	loadConfigurationFile(cobraCommand, configName)
 	loadOptions(cobraCommand, contextVariables)
 	cobraCommand.SetVersionTemplate(constant.VersionTemplate)

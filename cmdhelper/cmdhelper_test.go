@@ -13,7 +13,7 @@ import (
 var contextVariables = []option.ContextVariable{
 	option.Configuration,
 	option.EngineLogLevel,
-	option.EnableSwaggerUi,
+	option.EnableSwaggerUI,
 	option.XtermArguments,
 }
 
@@ -22,6 +22,7 @@ var contextVariables = []option.ContextVariable{
 // ----------------------------------------------------------------------------
 
 func TestInit(test *testing.T) {
+	_ = test
 	cobraCommand := &cobra.Command{
 		Use:   "test-use",
 		Short: "test-short",
@@ -43,6 +44,7 @@ func TestOsLookupEnvString(test *testing.T) {
 }
 
 func TestPreRun(test *testing.T) {
+	_ = test
 	cobraCommand := &cobra.Command{
 		Use:   "test-use",
 		Short: "test-short",
@@ -54,6 +56,10 @@ func TestPreRun(test *testing.T) {
 
 func TestVersion(test *testing.T) {
 	assert.Equal(test, "1.2.3-4", Version("1.2.3", "4"))
+}
+
+func TestVersion_noIteration(test *testing.T) {
+	assert.Equal(test, "1.2.3", Version("1.2.3", "0"))
 }
 
 // ----------------------------------------------------------------------------

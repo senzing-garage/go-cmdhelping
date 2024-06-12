@@ -1,4 +1,6 @@
-package engineconfiguration
+//go:build windows
+
+package settings
 
 import (
 	"context"
@@ -14,16 +16,17 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBuildSenzingEngineConfigurationJson(test *testing.T) {
+func TestBuildAndVerifySettings(test *testing.T) {
+	_ = test
 	ctx := context.TODO()
 
 	var contextVariables = []option.ContextVariable{
-		option.ConfigPath.SetDefault("/tmp/ConfigPath"),
-		option.DatabaseUrl.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
+		option.ConfigPath.SetDefault("C:\\Program Files\\Senzing\\g2\\etc"),
+		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
-		option.ResourcePath.SetDefault("/tmp/ResourcePath"),
+		option.ResourcePath.SetDefault("C:\\Program Files\\Senzing\\g2\\resources"),
 		option.SenzingDirectory,
-		option.SupportPath.SetDefault("/tmp/SupportPath"),
+		option.SupportPath.SetDefault("C:\\Program Files\\Senzing\\g2\\data"),
 	}
 
 	viper.AutomaticEnv()
@@ -34,7 +37,7 @@ func TestBuildSenzingEngineConfigurationJson(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildSenzingEngineConfigurationJson(ctx, viper.GetViper())
+	_, err := BuildAndVerifySettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}
