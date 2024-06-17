@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/senzing-garage/go-helpers v0.5.2
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.9.0
 )
