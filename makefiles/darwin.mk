@@ -17,7 +17,7 @@ build-osarch-specific: darwin/amd64
 clean-osarch-specific:
 	@rm -f  $(GOPATH)/bin/$(PROGRAM_NAME) || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.html || true
-	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.out || true
+	@rm -f  $(MAKEFILE_DIRECTORY)/cover.out || true
 	@rm -fr $(TARGET_DIRECTORY) || true
 
 
@@ -45,7 +45,7 @@ setup-osarch-specific:
 
 .PHONY: test-osarch-specific
 test-osarch-specific:
-	@go test -exec macos_exec_dyld.sh -v -p 1 ./...
+	@go test -exec macos_exec_dyld.sh -json -v -p 1 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
 
 # -----------------------------------------------------------------------------
 # Makefile targets supported only by this platform.

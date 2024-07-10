@@ -14,6 +14,14 @@ func (v ContextVariable) SetDefault(newDefault any) ContextVariable {
 	return v
 }
 
+var AvoidServe = ContextVariable{
+	Arg:     "avoid-serving",
+	Default: OsLookupEnvBool("SENZING_TOOLS_AVOID_SERVING", false),
+	Envar:   "SENZING_TOOLS_AVOID_SERVING",
+	Help:    "Avoid serving.  For testing only. [%s]",
+	Type:    optiontype.Bool,
+}
+
 var ConfigPath = ContextVariable{
 	Arg:     "config-path",
 	Default: OsLookupEnvString("SENZING_TOOLS_CONFIG_PATH", ""),
@@ -134,11 +142,11 @@ var EnableXterm = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-var EngineConfigurationJSON = ContextVariable{
-	Arg:     "engine-configuration-json",
-	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_CONFIGURATION_JSON", ""),
-	Envar:   "SENZING_TOOLS_ENGINE_CONFIGURATION_JSON",
-	Help:    "JSON string sent to Senzing's init() function [%s]",
+var EngineInstanceName = ContextVariable{
+	Arg:     "engine-instance-name",
+	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
+	Envar:   "SENZING_TOOLS_ENGINE_INSTANCE_NAME",
+	Help:    "Identifier given to the Senzing engine [%s]",
 	Type:    optiontype.String,
 }
 
@@ -150,11 +158,11 @@ var EngineLogLevel = ContextVariable{
 	Type:    optiontype.Int,
 }
 
-var EngineModuleName = ContextVariable{
-	Arg:     "engine-module-name",
-	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
-	Envar:   "SENZING_TOOLS_ENGINE_MODULE_NAME",
-	Help:    "Identifier given to the Senzing engine [%s]",
+var EngineSettings = ContextVariable{
+	Arg:     "engine-settings",
+	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_SETTINGS", ""),
+	Envar:   "SENZING_TOOLS_ENGINE_SETTINGS",
+	Help:    "JSON string sent to Senzing's init() function [%s]",
 	Type:    optiontype.String,
 }
 
@@ -212,6 +220,22 @@ var JSONOutput = ContextVariable{
 	Envar:   "SENZING_TOOLS_JSON_OUTPUT",
 	Help:    "Only output JSON messages  [%s]",
 	Type:    optiontype.Bool,
+}
+
+var LicenseDaysLeft = ContextVariable{
+	Arg:     "license-days-left",
+	Default: OsLookupEnvString("SENZING_TOOLS_LICENSE_DAYS_LEFT", "30"),
+	Envar:   "SENZING_TOOLS_LICENSE_DAYS_LEFT",
+	Help:    "Number of days left in license before flagging as an error [%s]",
+	Type:    optiontype.String,
+}
+
+var LicenseRecordsPercent = ContextVariable{
+	Arg:     "license-records-percent",
+	Default: OsLookupEnvString("SENZING_TOOLS_LICENSE_RECORDS_PERCENT", "90"),
+	Envar:   "SENZING_TOOLS_LICENSE_RECORDS_PERCENT",
+	Help:    "Percent of records allowed by license [%s]",
+	Type:    optiontype.String,
 }
 
 var LicenseStringBase64 = ContextVariable{

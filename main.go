@@ -42,7 +42,7 @@ func main() {
 		Use:   Use,
 		Short: Short,
 		Long:  Long,
-		Run: func(cmd *cobra.Command, args []string) {
+		RunE: func(cmd *cobra.Command, args []string) {
 			_ = cmd
 			_ = args
 			fmt.Printf("--%-12s  %s: %s\n", option.DatabaseURL.Arg, fmt.Sprintf(option.DatabaseURL.Help, option.DatabaseURL.Envar), viper.GetString(option.DatabaseURL.Arg))

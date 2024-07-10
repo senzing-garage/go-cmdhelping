@@ -18,7 +18,7 @@ build-osarch-specific: windows/amd64
 clean-osarch-specific:
 	del /F /S /Q $(GOPATH)/bin/$(PROGRAM_NAME)
 	del /F /S /Q $(MAKEFILE_DIRECTORY)/coverage.html
-	del /F /S /Q $(MAKEFILE_DIRECTORY)/coverage.out
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/cover.out
 	del /F /S /Q $(TARGET_DIRECTORY)
 
 
@@ -34,7 +34,6 @@ hello-world-osarch-specific:
 	@echo "Hello World, from windows."
 
 
-
 .PHONY: run-osarch-specific
 run-osarch-specific:
 	@go run main.go
@@ -47,7 +46,7 @@ setup-osarch-specific:
 
 .PHONY: test-osarch-specific
 test-osarch-specific:
-	@go test -v -p 1 ./...
+	@go test -json -v -p 1 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
 
 # -----------------------------------------------------------------------------
 # Makefile targets supported only by this platform.
