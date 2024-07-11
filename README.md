@@ -45,18 +45,13 @@ See [main.go] for an example of use.
 1. [Development]
 1. [Errors]
 1. [Examples]
-1. Related artifacts:
-    1. [DockerHub]
-    1. [Helm Chart]
 
-[API documentation]: https://pkg.go.dev/github.com/senzing-garage/template-go
+[API documentation]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping
 [cmdhelper]: cmdhelper
 [cobra]: https://github.com/spf13/cobra
 [Development]: docs/development.md
-[DockerHub]: https://hub.docker.com/r/senzing/template-go
 [Errors]: docs/errors.md
 [Examples]: docs/examples.md
-[Helm Chart]: https://github.com/senzing-garage/charts/tree/main/charts/template-go
 [main.go]: main.go
 [option.ContextVariable]: option/option.go
 [Senzing Garage]: https://github.com/senzing-garage-garage
