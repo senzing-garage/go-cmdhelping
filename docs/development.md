@@ -2,7 +2,7 @@
 
 ## Install Go
 
-1. See Go's [Download and install](https://go.dev/doc/install)
+1. See Go's [Download and install].
 
 ## Install Senzing C library
 
@@ -13,36 +13,55 @@ Since the Senzing library is a prerequisite, it must be installed first.
     1. `/opt/senzing/g2/sdk/c`
     1. `/etc/opt/senzing`
 
-1. If not installed, see
-   [How to Install Senzing for Go Development](https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/install-senzing-for-go-development.md).
+1. If not installed, see [How to Install Senzing for Go Development].
 
 ## Install Git repository
 
 1. Identify git repository.
 
     ```console
-    export GIT_ACCOUNT=senzing
+    export GIT_ACCOUNT=senzing-garage
     export GIT_REPOSITORY=go-cmdhelping
     export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
     export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
 
     ```
 
-1. Using the environment variables values just set, follow steps in
-   [clone-repository](https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/clone-repository.md) to install the Git repository.
+1. Using the environment variables values just set, follow
+   steps in [clone-repository] to install the Git repository.
+
+## Dependencies
+
+1. A one-time command to install dependencies needed for `make` targets.
+   Example:
+
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make dependencies-for-make
+
+    ```
+
+1. Install dependencies needed for [Go] code.
+   Example:
+
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make dependencies
+
+    ```
 
 ## Build
 
 1. Build the binaries.
    Example:
 
-     ```console
-     cd ${GIT_REPOSITORY_DIR}
-     make build
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make clean build
 
-     ```
+    ```
 
-1. The binaries will be found in ${GIT_REPOSITORY_DIR}/target.
+1. The binaries will be found in the `${GIT_REPOSITORY_DIR}/target` directory.
    Example:
 
     ```console
@@ -50,126 +69,113 @@ Since the Senzing library is a prerequisite, it must be installed first.
 
     ```
 
+## Run
+
 1. Run the binary.
-   Example:
+   Examples:
 
-    ```console
-    ${GIT_REPOSITORY_DIR}/target/linux/go-cmdhelping
+    1. linux
 
-    ```
+        ```console
+        ${GIT_REPOSITORY_DIR}/target/linux-amd64/go-cmdhelping
+
+        ```
+
+    1. macOS
+
+        ```console
+        ${GIT_REPOSITORY_DIR}/target/darwin-amd64/go-cmdhelping
+
+        ```
+
+    1. windows
+
+        ```console
+        ${GIT_REPOSITORY_DIR}/target/windows-amd64/go-cmdhelping
+
+        ```
 
 1. Clean up.
    Example:
 
-     ```console
-     cd ${GIT_REPOSITORY_DIR}
-     make clean
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make clean
 
-     ```
+    ```
+
+## Lint
+
+1. Run Go tests.
+   Example:
+
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make lint
+
+    ```
 
 ## Test
 
 1. Run Go tests.
    Example:
 
-     ```console
-     cd ${GIT_REPOSITORY_DIR}
-     make test
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make clean setup test
 
-     ```
+    ```
+
+## Coverage
+
+Create a code coverage map.
+
+1. Run Go tests.
+   Example:
+
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make clean setup coverage
+
+    ```
+
+   A web-browser will show the results of the coverage.
+   The goal is to have over 80% coverage.
+   Anything less needs to be reflected in [testcoverage.yaml].
 
 ## Documentation
 
-1. Start `godoc` documentation server.
+1. Start [godoc] documentation server.
    Example:
 
     ```console
      cd ${GIT_REPOSITORY_DIR}
-     godoc
+     make clean documentation
 
     ```
 
-1. Visit [localhost:6060](http://localhost:6060)
+1. If a web page doesn't appear, visit [localhost:6060].
 1. Senzing documentation will be in the "Third party" section.
    `github.com` > `senzing` > `go-cmdhelping`
 
 1. When a versioned release is published with a `v0.0.0` format tag,
-the reference can be found by clicking on the following badge at the top of the README.md page:
-[![Go Reference](https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg)](https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping)
+the reference can be found by clicking on the following badge at the top of the README.md page.
+Example:
 
-## Docker
+    [![Go Reference](https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg)](https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping-go)
 
-1. Use make target to run a docker images that builds RPM and DEB files.
-   Example:
+1. To stop the `godoc` server, run
 
     ```console
-    cd ${GIT_REPOSITORY_DIR}
-    make docker-build
+     cd ${GIT_REPOSITORY_DIR}
+     make clean
 
     ```
 
-1. Run docker container.
-   Example:
-
-    ```console
-    docker run \
-      --rm \
-      senzing/go-cmdhelping
-
-    ```
-
-## Package
-
-### Package RPM and DEB files
-
-1. Use make target to run a docker images that builds RPM and DEB files.
-   Example:
-
-    ```console
-    cd ${GIT_REPOSITORY_DIR}
-    make package
-
-    ```
-
-1. The results will be in the `${GIT_REPOSITORY_DIR}/target` directory.
-   Example:
-
-    ```console
-    tree ${GIT_REPOSITORY_DIR}/target
-
-    ```
-
-### Test DEB package on Ubuntu
-
-1. Determine if `go-cmdhelping` is installed.
-   Example:
-
-    ```console
-    apt list --installed | grep go-cmdhelping
-
-    ```
-
-1. :pencil2: Install `go-cmdhelping`.
-   Example:
-
-    ```console
-    cd ${GIT_REPOSITORY_DIR}/target
-    sudo apt install ./go-cmdhelping-0.0.0.deb
-
-    ```
-
-1. Run command.
-   Example:
-
-    ```console
-    go-cmdhelping
-
-    ```
-
-1. Remove `go-cmdhelping` from system.
-   Example:
-
-    ```console
-    sudo apt-get remove go-cmdhelping
-
-    ```
+[clone-repository]: https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/clone-repository.md
+[Download and install]: https://go.dev/doc/install
+[Go]: https://go.dev/
+[godoc]: https://pkg.go.dev/golang.org/x/tools/cmd/godoc
+[How to Install Senzing for Go Development]: https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/install-senzing-for-go-development.md
+[localhost:6060]: http://localhost:6060/pkg/github.com/senzing-garage/go-cmdhelping/
+[testcoverage.yaml]: ../.github/coverage/testcoverage.yaml

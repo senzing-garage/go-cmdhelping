@@ -8,7 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
--
+## [0.2.3] - 2024-07-11
+
+### Added in 0.2.3
+
+- New Options:
+  - AvoidServe
+  - EngineInstanceName
+  - EngineSettings
+  - LicenseDaysLeft
+  - LicenseRecordsPercent
+
+### Deprecated in 0.2.3
+
+- Deprecated Options:
+  - EngineConfigurationJSON
+  - EngineModuleName
 
 ## [0.2.2] - 2024-06-11
 

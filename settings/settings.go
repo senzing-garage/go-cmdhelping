@@ -12,7 +12,7 @@ import (
 func BuildSettings(ctx context.Context, aViper *viper.Viper) (string, error) {
 	_ = ctx
 	var err error
-	result := aViper.GetString(option.EngineConfigurationJSON.Arg)
+	result := aViper.GetString(option.EngineSettings.Arg)
 	if len(result) == 0 {
 		optionsList := map[string]option.ContextVariable{
 			"configPath":          option.ConfigPath,
