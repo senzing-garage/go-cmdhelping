@@ -88,7 +88,7 @@ setup: setup-osarch-specific
 
 .PHONY: lint
 lint:
-	${GOBIN}/golangci-lint run --config=.github/linters/.golangci.yaml
+	@${GOBIN}/golangci-lint run --config=.github/linters/.golangci.yaml
 
 # -----------------------------------------------------------------------------
 # Build
