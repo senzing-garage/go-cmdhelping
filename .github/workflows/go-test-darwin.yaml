@@ -2,17 +2,23 @@ name: Go test darwin
 
 on: [pull_request, workflow_dispatch]
 
+env:
+  DYLD_LIBRARY_PATH: /opt/senzing/g2/lib:/opt/senzing/g2/lib/macos
+  LD_LIBRARY_PATH: /opt/senzing/g2/lib:/opt/senzing/g2/lib/macos
+  SENZING_TOOLS_DATABASE_URL: "sqlite3://na:na@nowhere/tmp/sqlite/G2C.db"
+
 permissions:
   contents: read
 
 jobs:
   go-test-darwin:
-    name: "Go test with OS: ${{ matrix.os }}; Go: ${{ matrix.go }}"
+    name: "Go test with Senzing: ${{ matrix.senzingapi-version }}; OS: ${{ matrix.os }}; Go: ${{ matrix.go }}"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         go: ["1.21"]
         os: [macos-13]
+        senzingapi-version: [staging-v4]
 
     steps:
       - name: Checkout repository
@@ -29,6 +35,17 @@ jobs:
         uses: gotesttools/gotestfmt-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Senzing API
+        uses: senzing-factory/github-action-install-senzing-api@v3
+        with:
+          senzingapi-version: ${{ matrix.senzingapi-version }}
+
+      - name: Copy /etc files
+        run: sudo mkdir -p /opt/senzing/g2/etc && cp sudo cp testdata/senzing-license/g2.lic /opt/senzing/g2/etc/g2.lic
+
+      - name: Copy test database files
+        run: mkdir -p /tmp/sqlite && cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
 
       - name: Run go test
         run: go test -json -v -p 1 -coverprofile=./cover.out -covermode=atomic -coverpkg=./... ./...  2>&1 | tee /tmp/gotest.log | gotestfmt
