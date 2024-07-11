@@ -142,6 +142,15 @@ var EnableXterm = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
+// Deprecated: Use EngineSettings instead.
+var EngineConfigurationJSON = ContextVariable{
+	Arg:     "engine-configuration-json",
+	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_CONFIGURATION_JSON", ""),
+	Envar:   "SENZING_TOOLS_ENGINE_CONFIGURATION_JSON",
+	Help:    "JSON string sent to Senzing's init() function [%s]",
+	Type:    optiontype.String,
+}
+
 var EngineInstanceName = ContextVariable{
 	Arg:     "engine-instance-name",
 	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
@@ -156,6 +165,15 @@ var EngineLogLevel = ContextVariable{
 	Envar:   "SENZING_TOOLS_ENGINE_LOG_LEVEL",
 	Help:    "Log level for Senzing Engine [%s]",
 	Type:    optiontype.Int,
+}
+
+// Deprecated: Use EngineInstanceName instead.
+var EngineModuleName = ContextVariable{
+	Arg:     "engine-module-name",
+	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
+	Envar:   "SENZING_TOOLS_ENGINE_MODULE_NAME",
+	Help:    "Identifier given to the Senzing engine [%s]",
+	Type:    optiontype.String,
 }
 
 var EngineSettings = ContextVariable{

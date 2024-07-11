@@ -11,8 +11,15 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestOsLookupEnvBool(test *testing.T) {
-	test.Setenv("AN_ENVIRONMENT_VARIABLE", "true")
-	assert.True(test, OsLookupEnvBool("AN_ENVIRONMENT_VARIABLE", false))
+	environmentVariableName := "AN_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "true")
+	assert.True(test, OsLookupEnvBool(environmentVariableName, false))
+}
+
+func TestOsLookupEnvBool_badValue(test *testing.T) {
+	environmentVariableName := "BAD_BOOLEAN_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "not-a-boolean")
+	assert.Panics(test, func() { _ = OsLookupEnvBool(environmentVariableName, true) })
 }
 
 func TestOsLookupEnvBool_notEnvVar(test *testing.T) {
@@ -24,8 +31,15 @@ func TestOsLookupEnvBool_useDefault(test *testing.T) {
 }
 
 func TestOsLookupEnvInt(test *testing.T) {
-	test.Setenv("AN_ENVIRONMENT_VARIABLE", "10")
-	assert.Equal(test, 10, OsLookupEnvInt("AN_ENVIRONMENT_VARIABLE", 99))
+	environmentVariableName := "AN_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "10")
+	assert.Equal(test, 10, OsLookupEnvInt(environmentVariableName, 99))
+}
+
+func TestOsLookupEnvInt_badValue(test *testing.T) {
+	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = OsLookupEnvInt(environmentVariableName, 10) })
 }
 
 func TestOsLookupEnvInt_notEnvVar(test *testing.T) {
@@ -37,8 +51,9 @@ func TestOsLookupEnvInt_useDefault(test *testing.T) {
 }
 
 func TestOsLookupEnvString(test *testing.T) {
-	test.Setenv("AN_ENVIRONMENT_VARIABLE", "default")
-	assert.Equal(test, "default", OsLookupEnvString("AN_ENVIRONMENT_VARIABLE", "not-default"))
+	environmentVariableName := "AN_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "default")
+	assert.Equal(test, "default", OsLookupEnvString(environmentVariableName, "not-default"))
 }
 
 func TestOsLookupEnvString_notEnvVar(test *testing.T) {

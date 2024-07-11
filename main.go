@@ -20,6 +20,14 @@ const (
 	Long  string = "Long description of command."
 )
 
+func Run(cmd *cobra.Command, args []string) {
+	_ = cmd
+	_ = args
+	fmt.Printf("--%-12s  %s: %s\n", option.DatabaseURL.Arg, fmt.Sprintf(option.DatabaseURL.Help, option.DatabaseURL.Envar), viper.GetString(option.DatabaseURL.Arg))
+	fmt.Printf("--%-12s  %s: %d\n", option.HTTPPort.Arg, fmt.Sprintf(option.HTTPPort.Help, option.HTTPPort.Envar), viper.GetInt(option.HTTPPort.Arg))
+	fmt.Printf("--%-12s  %s: %s\n", option.LogLevel.Arg, fmt.Sprintf(option.LogLevel.Help, option.LogLevel.Envar), viper.GetString(option.LogLevel.Arg))
+}
+
 func main() {
 
 	// Define the command-line options / environment variables used for context variables.
@@ -39,16 +47,10 @@ func main() {
 	// Initialize cobra.
 
 	var cobraCommand = &cobra.Command{
-		Use:   Use,
-		Short: Short,
-		Long:  Long,
-		RunE: func(cmd *cobra.Command, args []string) {
-			_ = cmd
-			_ = args
-			fmt.Printf("--%-12s  %s: %s\n", option.DatabaseURL.Arg, fmt.Sprintf(option.DatabaseURL.Help, option.DatabaseURL.Envar), viper.GetString(option.DatabaseURL.Arg))
-			fmt.Printf("--%-12s  %s: %d\n", option.HTTPPort.Arg, fmt.Sprintf(option.HTTPPort.Help, option.HTTPPort.Envar), viper.GetInt(option.HTTPPort.Arg))
-			fmt.Printf("--%-12s  %s: %s\n", option.LogLevel.Arg, fmt.Sprintf(option.LogLevel.Help, option.LogLevel.Envar), viper.GetString(option.LogLevel.Arg))
-		},
+		Use:     Use,
+		Short:   Short,
+		Long:    Long,
+		Run:     Run,
 		Version: cmdhelper.Version("1234", "5"),
 	}
 
