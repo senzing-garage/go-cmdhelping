@@ -19,6 +19,7 @@ clean-osarch-specific:
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.html || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/cover.out || true
 	@rm -fr $(TARGET_DIRECTORY) || true
+	@pkill godoc || true
 
 
 .PHONY: coverage-osarch-specific
@@ -27,6 +28,12 @@ coverage-osarch-specific:
 	@go test -v -coverprofile=coverage.out -p 1 ./...
 	@go tool cover -html="coverage.out" -o coverage.html
 	@xdg-open $(MAKEFILE_DIRECTORY)/coverage.html
+
+
+.PHONY: documentation-osarch-specific
+documentation-osarch-specific:
+	godoc &
+	xdg-open http://localhost:6060
 
 
 .PHONY: hello-world-osarch-specific

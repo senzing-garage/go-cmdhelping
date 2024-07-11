@@ -10,7 +10,8 @@ include makefiles/osdetect.mk
 
 # "Simple expanded" variables (':=')
 
-PROGRAM_NAME := $(shell basename `git rev-parse --show-toplevel`) # Name of the GIT repository.
+# PROGRAM_NAME is the name of the GIT repository.
+PROGRAM_NAME := $(shell basename `git rev-parse --show-toplevel`)
 MAKEFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKEFILE_DIRECTORY := $(shell dirname $(MAKEFILE_PATH))
 TARGET_DIRECTORY := $(MAKEFILE_DIRECTORY)/target
@@ -130,6 +131,13 @@ check-coverage:
 
 .PHONY: run
 run: run-osarch-specific
+
+# -----------------------------------------------------------------------------
+# Documentation
+# -----------------------------------------------------------------------------
+
+.PHONY: documentation
+documentation: documentation-osarch-specific
 
 # -----------------------------------------------------------------------------
 # Clean
