@@ -16,9 +16,7 @@ the recommendation is not to use it yet.
 
 ## Synopsis
 
-`go-cmdhelping` contains utility packages for working with
-[viper](https://github.com/spf13/viper) and
-[cobra](https://github.com/spf13/cobra)
+`go-cmdhelping` contains utility packages for working with [viper] and [cobra].
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg)](https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping)
 [![Go Report Card](https://goreportcard.com/badge/github.com/senzing-garage/go-cmdhelping)](https://goreportcard.com/report/github.com/senzing-garage/go-cmdhelping)
@@ -30,21 +28,16 @@ the recommendation is not to use it yet.
 
 ## Overview
 
-`go-cmdhelping` is an opinionated use of
-[viper](https://github.com/spf13/viper) and
-[cobra](https://github.com/spf13/cobra).
+`go-cmdhelping` is an opinionated use of [viper] and [cobra].
 
-Context variables are specified in a list of
-[option.ContextVariable](option/option.go).
+Context variables are specified in a list of [option.ContextVariable].
 
-The `[]option.ContextVariable` list is processed by functions in the
-[cmdhelper](cmdhelper) package.
+The `[]option.ContextVariable` list is processed by functions
+in the [cmdhelper] package.
 
 ## Use
 
-See
-[main.go](main.go)
-for an example of use.
+See [main.go] for an example of use.
 
 ## References
 
@@ -57,11 +50,16 @@ for an example of use.
     1. [Helm Chart]
 
 [API documentation]: https://pkg.go.dev/github.com/senzing-garage/template-go
+[cmdhelper]: cmdhelper
+[cobra]: https://github.com/spf13/cobra
 [Development]: docs/development.md
 [DockerHub]: https://hub.docker.com/r/senzing/template-go
 [Errors]: docs/errors.md
 [Examples]: docs/examples.md
 [Helm Chart]: https://github.com/senzing-garage/charts/tree/main/charts/template-go
+[main.go]: main.go
+[option.ContextVariable]: option/option.go
 [Senzing Garage]: https://github.com/senzing-garage-garage
 [Senzing Quick Start guides]: https://docs.senzing.com/quickstart/
 [Senzing]: https://senzing.com/
+[viper]: https://github.com/spf13/viper
