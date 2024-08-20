@@ -18,13 +18,14 @@ the recommendation is not to use it yet.
 
 `go-cmdhelping` contains utility packages for working with [viper] and [cobra].
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg)](https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping)
-[![Go Report Card](https://goreportcard.com/badge/github.com/senzing-garage/go-cmdhelping)](https://goreportcard.com/report/github.com/senzing-garage/go-cmdhelping)
-[![License](https://img.shields.io/badge/License-Apache2-brightgreen.svg)](https://github.com/senzing-garage/go-cmdhelping/blob/main/LICENSE)
+[![Go Reference Badge]][Package reference]
+[![Go Report Card Badge]][Go Report Card]
+[![License Badge]][License]
+[![go-test-linux.yaml Badge]][go-test-linux.yaml]
+[![go-test-darwin.yaml Badge]][go-test-darwin.yaml]
+[![go-test-windows.yaml Badge]][go-test-windows.yaml]
 
-[![go-test-linux.yaml](https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-linux.yaml/badge.svg)](https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-linux.yaml)
-[![go-test-darwin.yaml](https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-darwin.yaml/badge.svg)](https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-darwin.yaml)
-[![go-test-windows.yaml](https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-windows.yaml/badge.svg)](https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-windows.yaml)
+[![golangci-lint.yaml Badge]][golangci-lint.yaml]
 
 ## Overview
 
@@ -52,9 +53,23 @@ See [main.go] for an example of use.
 [Development]: docs/development.md
 [Errors]: docs/errors.md
 [Examples]: docs/examples.md
+[Go Reference Badge]: https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg
+[Go Report Card Badge]: https://goreportcard.com/badge/github.com/senzing-garage/go-cmdhelping
+[Go Report Card]: https://goreportcard.com/report/github.com/senzing-garage/go-cmdhelping
+[go-test-darwin.yaml Badge]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-darwin.yaml/badge.svg
+[go-test-darwin.yaml]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-darwin.yaml
+[go-test-linux.yaml Badge]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-linux.yaml/badge.svg
+[go-test-linux.yaml]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-linux.yaml
+[go-test-windows.yaml Badge]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-windows.yaml/badge.svg
+[go-test-windows.yaml]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/go-test-windows.yaml
+[golangci-lint.yaml Badge]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/golangci-lint.yaml/badge.svg
+[golangci-lint.yaml]: https://github.com/senzing-garage/go-cmdhelping/actions/workflows/golangci-lint.yaml
+[License Badge]: https://img.shields.io/badge/License-Apache2-brightgreen.svg
+[License]: https://github.com/senzing-garage/go-cmdhelping/blob/main/LICENSE
 [main.go]: main.go
 [option.ContextVariable]: option/option.go
 [Senzing Garage]: https://github.com/senzing-garage-garage
 [Senzing Quick Start guides]: https://docs.senzing.com/quickstart/
 [Senzing]: https://senzing.com/
 [viper]: https://github.com/spf13/viper
+[Package reference]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping

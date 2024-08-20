@@ -1,16 +1,27 @@
 # go-cmdhelping development
 
-## Install Go
+The following instructions are useful during development.
 
-1. See Go's [Download and install].
+**Note:** This has been tested on Linux and Darwin/macOS.
+It has not been tested on Windows.
+
+## Prerequisites for development
+
+:thinking: The following tasks need to be complete before proceeding.
+These are "one-time tasks" which may already have been completed.
+
+1. The following software programs need to be installed:
+    1. [git]
+    1. [make]
+    1. [go]
 
 ## Install Senzing C library
 
 Since the Senzing library is a prerequisite, it must be installed first.
 
 1. Verify Senzing C shared objects, configuration, and SDK header files are installed.
-    1. `/opt/senzing/g2/lib`
-    1. `/opt/senzing/g2/sdk/c`
+    1. `/opt/senzing/er/lib`
+    1. `/opt/senzing/er/sdk/c`
     1. `/etc/opt/senzing`
 
 1. If not installed, see [How to Install Senzing for Go Development].
@@ -37,7 +48,7 @@ Since the Senzing library is a prerequisite, it must be installed first.
 
     ```console
     cd ${GIT_REPOSITORY_DIR}
-    make dependencies-for-make
+    make dependencies-for-development
 
     ```
 
@@ -47,6 +58,17 @@ Since the Senzing library is a prerequisite, it must be installed first.
     ```console
     cd ${GIT_REPOSITORY_DIR}
     make dependencies
+
+    ```
+
+## Lint
+
+1. Run linting.
+   Example:
+
+    ```console
+    cd ${GIT_REPOSITORY_DIR}
+    make lint
 
     ```
 
@@ -71,10 +93,10 @@ Since the Senzing library is a prerequisite, it must be installed first.
 
 ## Run
 
-1. Run the binary.
+1. Run program.
    Examples:
 
-    1. linux
+    1. Linux
 
         ```console
         ${GIT_REPOSITORY_DIR}/target/linux-amd64/go-cmdhelping
@@ -88,7 +110,7 @@ Since the Senzing library is a prerequisite, it must be installed first.
 
         ```
 
-    1. windows
+    1. Windows
 
         ```console
         ${GIT_REPOSITORY_DIR}/target/windows-amd64/go-cmdhelping
@@ -104,20 +126,9 @@ Since the Senzing library is a prerequisite, it must be installed first.
 
     ```
 
-## Lint
-
-1. Run Go tests.
-   Example:
-
-    ```console
-    cd ${GIT_REPOSITORY_DIR}
-    make lint
-
-    ```
-
 ## Test
 
-1. Run Go tests.
+1. Run tests.
    Example:
 
     ```console
@@ -145,12 +156,12 @@ Create a code coverage map.
 
 ## Documentation
 
-1. Start [godoc] documentation server.
+1. View documentation.
    Example:
 
     ```console
-     cd ${GIT_REPOSITORY_DIR}
-     make clean documentation
+    cd ${GIT_REPOSITORY_DIR}
+    make clean documentation
 
     ```
 
@@ -162,20 +173,24 @@ Create a code coverage map.
 the reference can be found by clicking on the following badge at the top of the README.md page.
 Example:
 
-    [![Go Reference](https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg)](https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping-go)
+    [![Go Reference Badge]][Go Reference]
 
 1. To stop the `godoc` server, run
 
     ```console
-     cd ${GIT_REPOSITORY_DIR}
-     make clean
+    cd ${GIT_REPOSITORY_DIR}
+    make clean
 
     ```
 
+## References
+
 [clone-repository]: https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/clone-repository.md
-[Download and install]: https://go.dev/doc/install
-[Go]: https://go.dev/
-[godoc]: https://pkg.go.dev/golang.org/x/tools/cmd/godoc
+[git]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/git.md
+[Go Reference Badge]: https://pkg.go.dev/badge/github.com/senzing-garage/go-cmdhelping.svg
+[Go Reference]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping
+[go]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/go.md
 [How to Install Senzing for Go Development]: https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/install-senzing-for-go-development.md
 [localhost:6060]: http://localhost:6060/pkg/github.com/senzing-garage/go-cmdhelping/
+[make]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/make.md
 [testcoverage.yaml]: ../.github/coverage/testcoverage.yaml

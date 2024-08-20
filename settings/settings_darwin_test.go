@@ -21,12 +21,12 @@ func TestBuildAndVerifySettings(test *testing.T) {
 	ctx := context.TODO()
 
 	var contextVariables = []option.ContextVariable{
-		option.ConfigPath.SetDefault("/opt/senzing/g2/etc"),
+		option.ConfigPath.SetDefault("/opt/senzing/er/etc"),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
-		option.ResourcePath.SetDefault("/opt/senzing/g2/resources"),
+		option.ResourcePath.SetDefault("/opt/senzing/er/resources"),
 		option.SenzingDirectory,
-		option.SupportPath.SetDefault("/opt/senzing/g2/data"),
+		option.SupportPath.SetDefault("/opt/senzing/er/data"),
 	}
 
 	viper.AutomaticEnv()

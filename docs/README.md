@@ -1,5 +1,8 @@
 # go-cmdhelping
 
-Placeholder for [GitHub pages](https://pages.github.com/).
+Placeholder for [GitHub pages].
 
-See [https://hub.senzing.com/go-cmdhelping](https://hub.senzing.com/go-cmdhelping).
+See [GitHub page].
+
+[GitHub page]: https://garage.senzing.com/go-cmdhelping
+[GitHub pages]: https://pages.github.com/
