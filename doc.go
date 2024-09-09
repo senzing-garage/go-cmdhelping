@@ -1,4 +1,4 @@
 /*
-The go-cmdhelping packages are used in writing command-line interfaces.
+Package go-cmdhelping is used in writing command-line interfaces.
 */
 package main
