@@ -3,8 +3,6 @@ name: Go test darwin
 on: [pull_request, workflow_dispatch]
 
 env:
-  DYLD_LIBRARY_PATH: /opt/senzing/er/lib:/opt/senzing/er/lib/macos
-  LD_LIBRARY_PATH: /opt/senzing/er/lib:/opt/senzing/er/lib/macos
   SENZING_TOOLS_DATABASE_URL: sqlite3://na:na@nowhere/tmp/sqlite/G2C.db
 
 permissions:
@@ -42,7 +40,10 @@ jobs:
           senzingsdk-repository-path: ${{ secrets.SENZING_OSX_BETA_REPOSITORY }}
 
       - name: Run go test
-        run: go test -json -v -p 1 -coverprofile=./cover.out -covermode=atomic -coverpkg=./... ./...  2>&1 | tee /tmp/gotest.log | gotestfmt
+        run: |
+          DYLD_LIBRARY_PATH="$HOME"/senzing/er/lib:"$HOME"/senzing/er/lib/macos
+          LD_LIBRARY_PATH="$HOME"/senzing/er/lib:"$HOME"/senzing/er/lib/macos
+          go test -json -v -p 1 -coverprofile=./cover.out -covermode=atomic -coverpkg=./... ./...  2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Store coverage file
         uses: actions/upload-artifact@v4
