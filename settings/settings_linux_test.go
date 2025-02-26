@@ -28,7 +28,7 @@ func TestBuildAndVerifySettings(test *testing.T) {
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
 		option.ResourcePath.SetDefault(fmt.Sprintf("%s/er/resources", senzingPath)),
 		option.SenzingDirectory,
-		option.SupportPath.SetDefault(fmt.Sprintf("%s/er/data", senzingPath)),
+		option.SupportPath.SetDefault(fmt.Sprintf("%s/data", senzingPath)),
 	}
 
 	viper.AutomaticEnv()
