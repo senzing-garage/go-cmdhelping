@@ -38,6 +38,8 @@ github.com/senzing-garage/go-helpers v0.6.5 h1:J95+EN/PmSsDG+Cbk0uFOiIZ9GA/J7nO1
 github.com/senzing-garage/go-helpers v0.6.5/go.mod h1:A6kPasBp/3Lf7FjMCC5fZ0jS5CmnvJXDfNb3YYW097g=
 github.com/senzing-garage/go-helpers v0.6.6-0.20250226163458-4240f3689f8a h1:4oP6eSHeP76oQ8V5jCNmwpS/p/t95CrgCoA/TgL13S4=
 github.com/senzing-garage/go-helpers v0.6.6-0.20250226163458-4240f3689f8a/go.mod h1:252SDuNNlTJ5tOSgu5IvBEt+CNeCczB6g3WYNki2RKQ=
+github.com/senzing-garage/go-helpers v0.6.6-0.20250226173600-cd784bd5ea3e h1:998Nvs3Uzfl9K7Oa5feKcNOzUIKidOo8NLwUnDlC+Bg=
+github.com/senzing-garage/go-helpers v0.6.6-0.20250226173600-cd784bd5ea3e/go.mod h1:252SDuNNlTJ5tOSgu5IvBEt+CNeCczB6g3WYNki2RKQ=
 github.com/sourcegraph/conc v0.3.0 h1:OQTbbt6P72L20UqAkXXuLOj79LfEanQ+YQFNpLA9ySo=
 github.com/sourcegraph/conc v0.3.0/go.mod h1:Sdozi7LEKbFPqYX2/J+iBAM6HpqSLTASQIKqDmF7Mt0=
 github.com/spf13/afero v1.11.0 h1:WJQKhtpdm3v2IzqG8VMqrr6Rf3UYpEF239Jy9wNepM8=
