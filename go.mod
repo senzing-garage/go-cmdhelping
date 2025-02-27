@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.2
 
 require (
-	github.com/senzing-garage/go-helpers v0.6.6-0.20250227142101-6a50b7d42884
+	github.com/senzing-garage/go-helpers v0.6.6
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.10.0
