@@ -34,6 +34,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install Senzing SDK
+        uses: senzing-factory/github-action-install-senzing-sdk@v3
+        with:
+          senzingsdk-repository-path: ${{ secrets.SENZING_OSX_BETA_REPOSITORY }}
+
       - name: Run go test
         run: |
           go test -json -v -p 1 -coverprofile=./cover.out -covermode=atomic -coverpkg=./... ./...  2>&1 | tee /tmp/gotest.log | gotestfmt
