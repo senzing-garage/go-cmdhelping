@@ -1,16 +1,15 @@
 //go:build linux
 
-package settings
+package settings_test
 
 import (
-	"context"
-	"fmt"
 	"strings"
 	"testing"
 
 	"github.com/senzing-garage/go-cmdhelping/constant"
 	"github.com/senzing-garage/go-cmdhelping/option"
-	"github.com/senzing-garage/go-helpers/settings"
+	"github.com/senzing-garage/go-cmdhelping/settings"
+	helperSettings "github.com/senzing-garage/go-helpers/settings"
 	"github.com/spf13/viper"
 )
 
@@ -19,16 +18,17 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestBuildAndVerifySettings(test *testing.T) {
-	_ = test
-	ctx := context.TODO()
-	senzingPath := settings.GetSenzingPath()
-	var contextVariables = []option.ContextVariable{
+	test.Parallel()
+	ctx := test.Context()
+	senzingPath := helperSettings.GetSenzingPath()
+
+	contextVariables := []option.ContextVariable{
 		option.ConfigPath.SetDefault("/etc/opt/senzing"),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
-		option.ResourcePath.SetDefault(fmt.Sprintf("%s/er/resources", senzingPath)),
+		option.ResourcePath.SetDefault(senzingPath + "/er/resources"),
 		option.SenzingDirectory,
-		option.SupportPath.SetDefault(fmt.Sprintf("%s/data", senzingPath)),
+		option.SupportPath.SetDefault(senzingPath + "/data"),
 	}
 
 	viper.AutomaticEnv()
@@ -39,7 +39,7 @@ func TestBuildAndVerifySettings(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildAndVerifySettings(ctx, viper.GetViper())
+	_, err := settings.BuildAndVerifySettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}

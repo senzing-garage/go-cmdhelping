@@ -1,8 +1,9 @@
-package cmdhelper
+package cmdhelper_test
 
 import (
 	"fmt"
 
+	"github.com/senzing-garage/go-cmdhelping/cmdhelper"
 	"github.com/senzing-garage/go-cmdhelping/option"
 	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 	"github.com/spf13/cobra"
@@ -18,7 +19,8 @@ func ExampleInit() {
 		Short: "example-short",
 		Long:  `example-long`,
 	}
-	var contextVariables = []option.ContextVariable{
+
+	contextVariables := []option.ContextVariable{
 		{
 			Default: "",
 			Envar:   "MY_VARIABLE",
@@ -27,7 +29,8 @@ func ExampleInit() {
 			Type:    optiontype.String,
 		},
 	}
-	Init(cobraCommand, contextVariables)
+
+	cmdhelper.Init(cobraCommand, contextVariables)
 	// Output:
 }
 
@@ -52,7 +55,8 @@ func ExamplePreRun() {
 		Short: "example-short",
 		Long:  `example-long`,
 	}
-	var contextVariables = []option.ContextVariable{
+
+	contextVariables := []option.ContextVariable{
 		{
 			Default: "",
 			Envar:   "MY_VARIABLE",
@@ -61,13 +65,14 @@ func ExamplePreRun() {
 			Type:    optiontype.String,
 		},
 	}
-	Init(cobraCommand, contextVariables)
-	PreRun(cobraCommand, []string{}, "example-cmd", contextVariables)
+
+	cmdhelper.Init(cobraCommand, contextVariables)
+	cmdhelper.PreRun(cobraCommand, []string{}, "example-cmd", contextVariables)
 	// Output:
 }
 
 func ExampleVersion() {
-	result := Version("1.2.3", "4")
+	result := cmdhelper.Version("1.2.3", "4")
 	fmt.Println(result)
 	// Output: 1.2.3-4
 }

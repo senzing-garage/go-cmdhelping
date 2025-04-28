@@ -1,9 +1,8 @@
 //go:build darwin
 
-package settings
+package settings_test
 
 import (
-	"context"
 	"fmt"
 	"strings"
 	"testing"
@@ -20,9 +19,9 @@ import (
 
 func TestBuildAndVerifySettings(test *testing.T) {
 	_ = test
-	ctx := context.TODO()
+	ctx := test.Context()
 	senzingPath := settings.GetSenzingPath()
-	var contextVariables = []option.ContextVariable{
+	contextVariables := []option.ContextVariable{
 		option.ConfigPath.SetDefault(fmt.Sprintf("%s/er/etc", senzingPath)),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),

@@ -23,20 +23,30 @@ const (
 func Run(cmd *cobra.Command, args []string) {
 	_ = cmd
 	_ = args
-	fmt.Printf("--%-12s  %s: %s\n", option.DatabaseURL.Arg, fmt.Sprintf(option.DatabaseURL.Help, option.DatabaseURL.Envar), viper.GetString(option.DatabaseURL.Arg))
-	fmt.Printf("--%-12s  %s: %d\n", option.HTTPPort.Arg, fmt.Sprintf(option.HTTPPort.Help, option.HTTPPort.Envar), viper.GetInt(option.HTTPPort.Arg))
-	fmt.Printf("--%-12s  %s: %s\n", option.LogLevel.Arg, fmt.Sprintf(option.LogLevel.Help, option.LogLevel.Envar), viper.GetString(option.LogLevel.Arg))
+
+	outputf(
+		"--%-12s  %s: %s\n",
+		option.DatabaseURL.Arg,
+		fmt.Sprintf(option.DatabaseURL.Help, option.DatabaseURL.Envar),
+		viper.GetString(option.DatabaseURL.Arg),
+	)
+	outputf(
+		"--%-12s  %s: %d\n",
+		option.HTTPPort.Arg,
+		fmt.Sprintf(option.HTTPPort.Help, option.HTTPPort.Envar),
+		viper.GetInt(option.HTTPPort.Arg),
+	)
+	outputf(
+		"--%-12s  %s: %s\n",
+		option.LogLevel.Arg,
+		fmt.Sprintf(option.LogLevel.Help, option.LogLevel.Envar),
+		viper.GetString(option.LogLevel.Arg),
+	)
 }
 
 func main() {
-
 	// Define the command-line options / environment variables used for context variables.
-
-	var ContextVariables = []option.ContextVariable{
-		option.DatabaseURL,
-		option.HTTPPort,
-		option.LogLevel,
-	}
+	ContextVariables := []option.ContextVariable{option.DatabaseURL, option.HTTPPort, option.LogLevel}
 
 	// Initialize viper.
 
@@ -46,7 +56,7 @@ func main() {
 
 	// Initialize cobra.
 
-	var cobraCommand = &cobra.Command{
+	cobraCommand := &cobra.Command{
 		Use:     Use,
 		Short:   Short,
 		Long:    Long,
@@ -68,4 +78,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+}
+
+// ----------------------------------------------------------------------------
+// Private functions
+// ----------------------------------------------------------------------------
+
+func outputf(format string, message ...any) {
+	fmt.Printf(format, message...) //nolint
 }
