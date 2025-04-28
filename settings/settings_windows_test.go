@@ -9,7 +9,8 @@ import (
 
 	"github.com/senzing-garage/go-cmdhelping/constant"
 	"github.com/senzing-garage/go-cmdhelping/option"
-	"github.com/senzing-garage/go-helpers/settings"
+	"github.com/senzing-garage/go-cmdhelping/settings"
+	helperSettings "github.com/senzing-garage/go-helpers/settings"
 	"github.com/spf13/viper"
 )
 
@@ -20,7 +21,7 @@ import (
 func TestBuildAndVerifySettings(test *testing.T) {
 	_ = test
 	ctx := test.Context()
-	senzingPath := settings.GetSenzingPath()
+	senzingPath := helperSettings.GetSenzingPath()
 	contextVariables := []option.ContextVariable{
 		option.ConfigPath.SetDefault(fmt.Sprintf("%s\\er\\etc", senzingPath)),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
@@ -38,7 +39,7 @@ func TestBuildAndVerifySettings(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildAndVerifySettings(ctx, viper.GetViper())
+	_, err := settings.BuildAndVerifySettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}
