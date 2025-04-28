@@ -7,10 +7,23 @@ import (
 	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 )
 
+const (
+	senzingToolsGrpcPort                   = 8261
+	senzingtoolsHTTPPort                   = 8260
+	senzingToolsMonitoringPeriodInSeconds  = 600
+	senzingToolsObserverGrpcPort           = 8258
+	senzingToolsRecordMonitor              = 100000
+	senzingToolsVisibililtyPeriodInSeconds = 60
+	senzingToolsXtermConnectionErrorLimit  = 10
+	senzingToolsXtermKeepalivePingTimeout  = 20
+	senzingToolsXtermMaxBufferSizeBytes    = 512
+)
+
 // Alter the default value of an option.ContextVariable.
 // Useful when including an option.ContextVariable a []option.ContextVariable.
 func (v ContextVariable) SetDefault(newDefault any) ContextVariable {
 	v.Default = newDefault
+
 	return v
 }
 
@@ -194,7 +207,7 @@ var MessageID = ContextVariable{
 
 var GrpcPort = ContextVariable{
 	Arg:     "grpc-port",
-	Default: OsLookupEnvInt("SENZING_TOOLS_GRPC_PORT", 8261),
+	Default: OsLookupEnvInt("SENZING_TOOLS_GRPC_PORT", senzingToolsGrpcPort),
 	Envar:   "SENZING_TOOLS_GRPC_PORT",
 	Help:    "Port used to serve gRPC [%s]",
 	Type:    optiontype.Int,
@@ -210,7 +223,7 @@ var GrpcURL = ContextVariable{
 
 var HTTPPort = ContextVariable{
 	Arg:     "http-port",
-	Default: OsLookupEnvInt("SENZING_TOOLS_HTTP_PORT", 8260),
+	Default: OsLookupEnvInt("SENZING_TOOLS_HTTP_PORT", senzingtoolsHTTPPort),
 	Envar:   "SENZING_TOOLS_HTTP_PORT",
 	Help:    "Port to serve HTTP [%s]",
 	Type:    optiontype.Int,
@@ -274,7 +287,7 @@ var LogLevel = ContextVariable{
 
 var MonitoringPeriodInSeconds = ContextVariable{
 	Arg:     "monitoring-period-in-seconds",
-	Default: OsLookupEnvInt("SENZING_TOOLS_MONITORING_PERIOD_IN_SECONDS", 600),
+	Default: OsLookupEnvInt("SENZING_TOOLS_MONITORING_PERIOD_IN_SECONDS", senzingToolsMonitoringPeriodInSeconds),
 	Envar:   "SENZING_TOOLS_MONITORING_PERIOD_IN_SECONDS",
 	Help:    "Print monitoring log messages with the period given in seconds [%s]",
 	Type:    optiontype.Int,
@@ -298,7 +311,7 @@ var ObserverOrigin = ContextVariable{
 
 var ObserverGrpcPort = ContextVariable{
 	Arg:     "observer-grpc-port",
-	Default: OsLookupEnvInt("SENZING_TOOLS_OBSERVER_GRPC_PORT", 8258),
+	Default: OsLookupEnvInt("SENZING_TOOLS_OBSERVER_GRPC_PORT", senzingToolsObserverGrpcPort),
 	Envar:   "SENZING_TOOLS_OBSERVER_GRPC_PORT",
 	Help:    "Port to serve gRPC for receiving observer messages [%s]",
 	Type:    optiontype.Int,
@@ -338,7 +351,7 @@ var RecordMin = ContextVariable{
 
 var RecordMonitor = ContextVariable{
 	Arg:     "record-monitor",
-	Default: OsLookupEnvInt("SENZING_TOOLS_RECORD_MONITOR", 100000),
+	Default: OsLookupEnvInt("SENZING_TOOLS_RECORD_MONITOR", senzingToolsRecordMonitor),
 	Envar:   "SENZING_TOOLS_RECORD_MONITOR",
 	Help:    "Log a monitor message after this number of records have been processed [%s]",
 	Type:    optiontype.Int,
@@ -386,7 +399,7 @@ var TtyOnly = ContextVariable{
 
 var VisibilityPeriodInSeconds = ContextVariable{
 	Arg:     "visibility-period-in-seconds",
-	Default: OsLookupEnvInt("SENZING_TOOLS_VISIBILITY_PERIOD_IN_SECONDS", 60),
+	Default: OsLookupEnvInt("SENZING_TOOLS_VISIBILITY_PERIOD_IN_SECONDS", senzingToolsVisibililtyPeriodInSeconds),
 	Envar:   "SENZING_TOOLS_VISIBILITY_PERIOD_IN_SECONDS",
 	Help:    "Number of seconds a record held for processing.  This is renewed if processing takes longer [%s]",
 	Type:    optiontype.Int,
@@ -418,7 +431,7 @@ var XtermCommand = ContextVariable{
 
 var XtermConnectionErrorLimit = ContextVariable{
 	Arg:     "xterm-connection-error-limit",
-	Default: OsLookupEnvInt("SENZING_TOOLS_XTERM_CONNECTION_ERROR_LIMIT", 10),
+	Default: OsLookupEnvInt("SENZING_TOOLS_XTERM_CONNECTION_ERROR_LIMIT", senzingToolsXtermConnectionErrorLimit),
 	Envar:   "SENZING_TOOLS_XTERM_CONNECTION_ERROR_LIMIT",
 	Help:    "Connection re-attempts before terminating [%s]",
 	Type:    optiontype.Int,
@@ -426,7 +439,7 @@ var XtermConnectionErrorLimit = ContextVariable{
 
 var XtermKeepalivePingTimeout = ContextVariable{
 	Arg:     "xterm-keepalive-ping-timeout",
-	Default: OsLookupEnvInt("SENZING_TOOLS_XTERM_KEEPALIVE_PING_TIMEOUT", 20),
+	Default: OsLookupEnvInt("SENZING_TOOLS_XTERM_KEEPALIVE_PING_TIMEOUT", senzingToolsXtermKeepalivePingTimeout),
 	Envar:   "SENZING_TOOLS_XTERM_KEEPALIVE_PING_TIMEOUT",
 	Help:    "Maximum allowable seconds between a ping message and its response [%s]",
 	Type:    optiontype.Int,
@@ -434,7 +447,7 @@ var XtermKeepalivePingTimeout = ContextVariable{
 
 var XtermMaxBufferSizeBytes = ContextVariable{
 	Arg:     "xterm-max-buffer-size-bytes",
-	Default: OsLookupEnvInt("SENZING_TOOLS_XTERM_MAX_BUFFER_SIZE_BYTES", 512),
+	Default: OsLookupEnvInt("SENZING_TOOLS_XTERM_MAX_BUFFER_SIZE_BYTES", senzingToolsXtermMaxBufferSizeBytes),
 	Envar:   "SENZING_TOOLS_XTERM_MAX_BUFFER_SIZE_BYTES",
 	Help:    "Maximum length of terminal input [%s]",
 	Type:    optiontype.Int,

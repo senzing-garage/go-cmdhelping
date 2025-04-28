@@ -1,12 +1,12 @@
-package settings
+package settings_test
 
 import (
-	"context"
 	"strings"
 	"testing"
 
 	"github.com/senzing-garage/go-cmdhelping/constant"
 	"github.com/senzing-garage/go-cmdhelping/option"
+	"github.com/senzing-garage/go-cmdhelping/settings"
 	"github.com/spf13/viper"
 )
 
@@ -15,10 +15,10 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestBuildSettings(test *testing.T) {
-	_ = test
-	ctx := context.TODO()
+	test.Parallel()
+	ctx := test.Context()
 
-	var contextVariables = []option.ContextVariable{
+	contextVariables := []option.ContextVariable{
 		option.ConfigPath.SetDefault("/tmp/ConfigPath"),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
 		option.LicenseStringBase64.SetDefault("ABCD12134"),
@@ -35,7 +35,7 @@ func TestBuildSettings(test *testing.T) {
 		viper.SetDefault(contextVariable.Arg, contextVariable.Default)
 	}
 
-	_, err := BuildSettings(ctx, viper.GetViper())
+	_, err := settings.BuildSettings(ctx, viper.GetViper())
 	if err != nil {
 		panic(err)
 	}

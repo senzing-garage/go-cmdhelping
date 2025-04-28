@@ -12,10 +12,12 @@ func OsLookupEnvBool(envar string, aDefault bool) bool {
 	if !isSet {
 		return aDefault
 	}
+
 	result, err := strconv.ParseBool(strings.ToUpper(resultString))
 	if err != nil {
 		panic(err)
 	}
+
 	return result
 }
 
@@ -25,10 +27,12 @@ func OsLookupEnvInt(envar string, aDefault int) int {
 	if !isSet {
 		return aDefault
 	}
+
 	result, err := strconv.Atoi(resultString)
 	if err != nil {
 		panic(err)
 	}
+
 	return result
 }
 
@@ -38,5 +42,6 @@ func OsLookupEnvString(envar string, aDefault string) string {
 	if !isSet {
 		return aDefault
 	}
+
 	return result
 }

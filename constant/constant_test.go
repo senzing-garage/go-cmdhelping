@@ -1,4 +1,4 @@
-package constant
+package constant_test
 
 import (
 	"testing"
@@ -9,5 +9,5 @@ import (
 // ----------------------------------------------------------------------------
 
 func TestConstant_Null(test *testing.T) {
-	_ = test
+	test.Parallel()
 }

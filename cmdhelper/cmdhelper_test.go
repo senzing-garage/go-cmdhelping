@@ -1,10 +1,11 @@
-package cmdhelper
+package cmdhelper_test
 
 import (
 	"os"
 	"path/filepath"
 	"testing"
 
+	"github.com/senzing-garage/go-cmdhelping/cmdhelper"
 	"github.com/senzing-garage/go-cmdhelping/option"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
@@ -23,28 +24,31 @@ var contextVariables = []option.ContextVariable{
 // ----------------------------------------------------------------------------
 
 func TestInit(test *testing.T) {
-	_ = test
+	test.Parallel()
+
 	cobraCommand := &cobra.Command{
 		Use:   "test-use",
 		Short: "test-short",
 		Long:  `test-long`,
 	}
-	Init(cobraCommand, contextVariables)
+	cmdhelper.Init(cobraCommand, contextVariables)
 }
 
 func TestPreRun(test *testing.T) {
-	_ = test
+	test.Parallel()
+
 	cobraCommand := &cobra.Command{
 		Use:   "test-use",
 		Short: "test-short",
 		Long:  `test-long`,
 	}
-	Init(cobraCommand, contextVariables)
-	PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
+	cmdhelper.Init(cobraCommand, contextVariables)
+	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
 }
 
 func TestPreRun_badConfigurationPath(test *testing.T) {
-	_ = test
+	test.Parallel()
+
 	configurationOption := option.Configuration
 	configurationOption.Default = "/tmp/senzing-tools"
 	contextVariables := []option.ContextVariable{
@@ -55,16 +59,18 @@ func TestPreRun_badConfigurationPath(test *testing.T) {
 		Short: "test-short",
 		Long:  `test-long`,
 	}
-	Init(cobraCommand, contextVariables)
-	PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
+	cmdhelper.Init(cobraCommand, contextVariables)
+	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
 }
 
 func TestPreRun_goodConfigurationPath(test *testing.T) {
-	_ = test
+	test.Parallel()
 	configurationFilePath := filepath.Join(test.TempDir(), "configuration.txt")
 	file, err := os.Create(configurationFilePath)
 	require.NoError(test, err)
+
 	defer file.Close()
+
 	configurationOption := option.Configuration
 	configurationOption.Default = configurationFilePath
 	contextVariables := []option.ContextVariable{
@@ -75,14 +81,16 @@ func TestPreRun_goodConfigurationPath(test *testing.T) {
 		Short: "test-short",
 		Long:  `test-long`,
 	}
-	Init(cobraCommand, contextVariables)
-	PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
+	cmdhelper.Init(cobraCommand, contextVariables)
+	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
 }
 
 func TestVersion(test *testing.T) {
-	assert.Equal(test, "1.2.3-4", Version("1.2.3", "4"))
+	test.Parallel()
+	assert.Equal(test, "1.2.3-4", cmdhelper.Version("1.2.3", "4"))
 }
 
 func TestVersion_noIteration(test *testing.T) {
-	assert.Equal(test, "1.2.3", Version("1.2.3", "0"))
+	test.Parallel()
+	assert.Equal(test, "1.2.3", cmdhelper.Version("1.2.3", "0"))
 }

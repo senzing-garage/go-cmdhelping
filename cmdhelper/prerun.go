@@ -14,16 +14,16 @@ import (
 // If a configuration file is present, load it.
 func loadConfigurationFile(cobraCommand *cobra.Command, configName string) {
 	var configuration string
+
 	configFlag := cobraCommand.Flags().Lookup(option.Configuration.Arg)
 	if configFlag != nil {
 		configuration = configFlag.Value.String()
 	}
+
 	if configuration != "" { // Use configuration file specified as a command line option.
 		viper.SetConfigFile(configuration)
 	} else { // Search for a configuration file.
-
 		// Determine home directory.
-
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
 
@@ -49,13 +49,16 @@ func loadConfigurationFile(cobraCommand *cobra.Command, configName string) {
 // Configure Viper with user-specified options.
 func loadOptions(cobraCommand *cobra.Command, contextVariables []option.ContextVariable) {
 	var err error
+
 	viper.AutomaticEnv()
+
 	replacer := strings.NewReplacer("-", "_")
 	viper.SetEnvKeyReplacer(replacer)
 	viper.SetEnvPrefix(constant.SetEnvPrefix)
 
 	for _, contextVar := range contextVariables {
 		viper.SetDefault(contextVar.Arg, contextVar.Default)
+
 		err = viper.BindPFlag(contextVar.Arg, cobraCommand.Flags().Lookup(contextVar.Arg))
 		if err != nil {
 			panic(err)
@@ -66,6 +69,7 @@ func loadOptions(cobraCommand *cobra.Command, contextVariables []option.ContextV
 // A function that can be wrapped for use by cobra.Command.PreRun.
 func PreRun(cobraCommand *cobra.Command, args []string, configName string, contextVariables []option.ContextVariable) {
 	_ = args
+
 	loadConfigurationFile(cobraCommand, configName)
 	loadOptions(cobraCommand, contextVariables)
 	cobraCommand.SetVersionTemplate(constant.VersionTemplate)
