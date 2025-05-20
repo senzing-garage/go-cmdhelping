@@ -38,24 +38,24 @@ func BuildSettings(ctx context.Context, aViper *viper.Viper) (string, error) {
 		result, err = settings.BuildSimpleSettingsUsingMap(options)
 	}
 
-	return result, wraperror.Errorf(err, "settings.BuildSettings error %w", err)
+	return result, wraperror.Errorf(err, wraperror.NoMessage)
 }
 
 // Convenience method for engineconfigurationjson.VerifySettings.
 func VerifySettings(ctx context.Context, theSettings string) error {
 	err := settings.VerifySettings(ctx, theSettings)
 
-	return wraperror.Errorf(err, "settings.VerifySettings error %w", err)
+	return wraperror.Errorf(err, "go-helper.settings.VerifySettings")
 }
 
 // Given variables in Viper, construct and verify the Senzing engine configuration JSON.
 func BuildAndVerifySettings(ctx context.Context, aViper *viper.Viper) (string, error) {
 	theSettings, err := BuildSettings(ctx, aViper)
 	if err != nil {
-		return theSettings, err
+		return theSettings, wraperror.Errorf(err, "BuildSettings")
 	}
 
 	err = VerifySettings(ctx, theSettings)
 
-	return theSettings, wraperror.Errorf(err, "settings.BuildAndVerifySettings error %w", err)
+	return theSettings, wraperror.Errorf(err, wraperror.NoMessage)
 }
