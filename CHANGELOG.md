@@ -7,31 +7,47 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.3.6] - 2025-06-09
+
+### Changed in 0.3.6
+
+- Improved error messages
+
 ## [0.3.5] - 2025-05-20
+
+### Changed in 0.3.5
 
 - Improved error messages
 
 ## [0.3.4] - 2025-04-28
 
+### Changed in 0.3.4
+
 - Update dependencies
 
 ## [0.3.3] - 2025-03-12
+
+### Changed in 0.3.3
 
 - Update dependencies
 
 ## [0.3.2] - 2025-02-27
 
+### Changed in 0.3.2
+
 - Update dependencies
 
 ## [0.3.1] - 2024-09-09
+
+### Changed in 0.31
 
 - Update dependencies
 
 ## [0.3.0] - 2024-08-20
 
-- Change from `g2` to `sz`/`er`
-
 ### Added in 0.3.0
+
+- Change from `g2` to `sz`/`er`
 
 ## [0.2.3] - 2024-07-11
 
