@@ -8,4 +8,6 @@ const (
 	String
 	StringSlice
 	Uint
+	Uint32
+	Uint64
 )

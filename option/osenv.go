@@ -60,3 +60,33 @@ func OsLookupEnvUint(envar string, aDefault uint) uint {
 
 	return uint(result)
 }
+
+// If the environment variable exists, return its value.  If not, return the default value.
+func OsLookupEnvUint32(envar string, aDefault uint32) uint32 {
+	resultString, isSet := os.LookupEnv(envar)
+	if !isSet {
+		return aDefault
+	}
+
+	result, err := strconv.ParseUint(resultString, 10, 32)
+	if err != nil {
+		panic(err)
+	}
+
+	return uint32(result)
+}
+
+// If the environment variable exists, return its value.  If not, return the default value.
+func OsLookupEnvUint64(envar string, aDefault uint64) uint64 {
+	resultString, isSet := os.LookupEnv(envar)
+	if !isSet {
+		return aDefault
+	}
+
+	result, err := strconv.ParseUint(resultString, 10, 64)
+	if err != nil {
+		panic(err)
+	}
+
+	return uint64(result)
+}

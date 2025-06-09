@@ -78,7 +78,7 @@ func TestOsLookupEnvUint(test *testing.T) {
 func TestOsLookupEnvUint_badValue(test *testing.T) {
 	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
 	test.Setenv(environmentVariableName, "not-an-integer")
-	assert.Panics(test, func() { _ = option.OsLookupEnvInt(environmentVariableName, 10) })
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint(environmentVariableName, 10) })
 }
 
 func TestOsLookupEnvUint_badValue_negativeNumber(test *testing.T) {
@@ -95,6 +95,60 @@ func TestOsLookupEnvUint_notEnvVar(test *testing.T) {
 func TestOsLookupEnvUint_useDefault(test *testing.T) {
 	test.Parallel()
 	assert.Equal(test, uint(10), option.OsLookupEnvUint("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+}
+
+func TestOsLookupEnvUint32(test *testing.T) {
+	test.Setenv(genericEnvVarName, "10")
+	assert.Equal(test, uint(10), option.OsLookupEnvUint32(genericEnvVarName, 99))
+}
+
+func TestOsLookupEnvUint32_badValue(test *testing.T) {
+	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint32(environmentVariableName, 10) })
+}
+
+func TestOsLookupEnvUint32_badValue_negativeNumber(test *testing.T) {
+	environmentVariableName := "BAD_NEGATIVE_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "-1")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint32(environmentVariableName, 10) })
+}
+
+func TestOsLookupEnvUint32_notEnvVar(test *testing.T) {
+	test.Parallel()
+	assert.Equal(test, uint(10), option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+}
+
+func TestOsLookupEnvUint32_useDefault(test *testing.T) {
+	test.Parallel()
+	assert.Equal(test, uint(10), option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+}
+
+func TestOsLookupEnvUint64(test *testing.T) {
+	test.Setenv(genericEnvVarName, "10")
+	assert.Equal(test, uint(10), option.OsLookupEnvUint64(genericEnvVarName, 99))
+}
+
+func TestOsLookupEnvUint64_badValue(test *testing.T) {
+	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint64(environmentVariableName, 10) })
+}
+
+func TestOsLookupEnvUint64_badValue_negativeNumber(test *testing.T) {
+	environmentVariableName := "BAD_NEGATIVE_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "-1")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint64(environmentVariableName, 10) })
+}
+
+func TestOsLookupEnvUint64_notEnvVar(test *testing.T) {
+	test.Parallel()
+	assert.Equal(test, uint(10), option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+}
+
+func TestOsLookupEnvUint64_useDefault(test *testing.T) {
+	test.Parallel()
+	assert.Equal(test, uint(10), option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
 }
 
 func TestSetDefault(test *testing.T) {

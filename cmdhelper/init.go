@@ -28,6 +28,10 @@ func SetCobraFlag(cobraCommand *cobra.Command, contextVariable option.ContextVar
 		setCobraFlagStringSlice(cobraCommand, contextVariable)
 	case optiontype.Uint:
 		setCobraFlagUint(cobraCommand, contextVariable)
+	case optiontype.Uint32:
+		setCobraFlagUint32(cobraCommand, contextVariable)
+	case optiontype.Uint64:
+		setCobraFlagUint64(cobraCommand, contextVariable)
 	}
 }
 
@@ -82,6 +86,28 @@ func setCobraFlagUint(cobraCommand *cobra.Command, contextVariable option.Contex
 	if isOK {
 		cobraCommand.Flags().Uint(contextVariable.Arg, value, helpMessage)
 	} else {
-		panic(contextVariable.Arg + " should be int")
+		panic(contextVariable.Arg + " should be uint")
+	}
+}
+
+func setCobraFlagUint32(cobraCommand *cobra.Command, contextVariable option.ContextVariable) {
+	helpMessage := fmt.Sprintf(contextVariable.Help, contextVariable.Envar)
+	value, isOK := contextVariable.Default.(uint32)
+
+	if isOK {
+		cobraCommand.Flags().Uint32(contextVariable.Arg, value, helpMessage)
+	} else {
+		panic(contextVariable.Arg + " should be uint32")
+	}
+}
+
+func setCobraFlagUint64(cobraCommand *cobra.Command, contextVariable option.ContextVariable) {
+	helpMessage := fmt.Sprintf(contextVariable.Help, contextVariable.Envar)
+	value, isOK := contextVariable.Default.(uint64)
+
+	if isOK {
+		cobraCommand.Flags().Uint64(contextVariable.Arg, value, helpMessage)
+	} else {
+		panic(contextVariable.Arg + " should be uint64")
 	}
 }

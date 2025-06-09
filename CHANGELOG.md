@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning].
 
 ## [0.3.6] - 2025-06-09
 
-### Changed in 0.3.6
+### Added in 0.3.6
 
-- Improved error messages
+- Support for `uint`, `uint32` and `uint64`
 
 ## [0.3.5] - 2025-05-20
 

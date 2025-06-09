@@ -15,17 +15,35 @@ import (
 
 var uintOption = option.ContextVariable{
 	Arg:     "uint-option",
-	Default: option.OsLookupEnvUint("SENZING_TOOLS_TEST_UNIT_OPTION", 10),
-	Envar:   "SENZING_TOOLS_TEST_UNIT_OPTION",
+	Default: option.OsLookupEnvUint("SENZING_TOOLS_TEST_UINT_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UINT_OPTION",
+	Help:    "Test help. [%s]",
+	Type:    optiontype.Uint,
+}
+
+var uint32Option = option.ContextVariable{
+	Arg:     "uint-32-option",
+	Default: option.OsLookupEnvUint32("SENZING_TOOLS_TEST_UINT_32_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UINT_32_OPTION",
+	Help:    "Test help. [%s]",
+	Type:    optiontype.Uint,
+}
+
+var uint64Option = option.ContextVariable{
+	Arg:     "uint-64-option",
+	Default: option.OsLookupEnvUint64("SENZING_TOOLS_TEST_UINT_64_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UINT_64_OPTION",
 	Help:    "Test help. [%s]",
 	Type:    optiontype.Uint,
 }
 
 var contextVariables = []option.ContextVariable{
 	option.Configuration,
-	option.EngineLogLevel,
 	option.EnableSwaggerUI,
+	option.EngineLogLevel,
 	option.XtermArguments,
+	uint32Option,
+	uint64Option,
 	uintOption,
 }
 
