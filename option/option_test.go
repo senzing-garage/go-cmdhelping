@@ -70,6 +70,33 @@ func TestOsLookupEnvString_useDefault(test *testing.T) {
 	assert.Equal(test, "default", option.OsLookupEnvString("NOT_AN_ENVIRONMENT_VARIABLE", "default"))
 }
 
+func TestOsLookupEnvUint(test *testing.T) {
+	test.Setenv(genericEnvVarName, "10")
+	assert.Equal(test, uint(10), option.OsLookupEnvUint(genericEnvVarName, 99))
+}
+
+func TestOsLookupEnvUint_badValue(test *testing.T) {
+	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvInt(environmentVariableName, 10) })
+}
+
+func TestOsLookupEnvUint_badValue_negativeNumber(test *testing.T) {
+	environmentVariableName := "BAD_NEGATIVE_INTEGER_ENVIRONMENT_VARIABLE"
+	test.Setenv(environmentVariableName, "-1")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint(environmentVariableName, 10) })
+}
+
+func TestOsLookupEnvUint_notEnvVar(test *testing.T) {
+	test.Parallel()
+	assert.Equal(test, uint(10), option.OsLookupEnvUint("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+}
+
+func TestOsLookupEnvUint_useDefault(test *testing.T) {
+	test.Parallel()
+	assert.Equal(test, uint(10), option.OsLookupEnvUint("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+}
+
 func TestSetDefault(test *testing.T) {
 	test.Parallel()
 	assert.Equal(test, "NOT a default", option.DatabaseURL.SetDefault("NOT a default").Default)
