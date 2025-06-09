@@ -7,16 +7,26 @@ import (
 
 	"github.com/senzing-garage/go-cmdhelping/cmdhelper"
 	"github.com/senzing-garage/go-cmdhelping/option"
+	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+var uintOption = option.ContextVariable{
+	Arg:     "uint-option",
+	Default: option.OsLookupEnvUint("SENZING_TOOLS_TEST_UNIT_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UNIT_OPTION",
+	Help:    "Test help. [%s]",
+	Type:    optiontype.Uint,
+}
 
 var contextVariables = []option.ContextVariable{
 	option.Configuration,
 	option.EngineLogLevel,
 	option.EnableSwaggerUI,
 	option.XtermArguments,
+	uintOption,
 }
 
 // ----------------------------------------------------------------------------
