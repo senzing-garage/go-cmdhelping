@@ -99,7 +99,7 @@ func TestOsLookupEnvUint_useDefault(test *testing.T) {
 
 func TestOsLookupEnvUint32(test *testing.T) {
 	test.Setenv(genericEnvVarName, "10")
-	assert.Equal(test, uint(10), option.OsLookupEnvUint32(genericEnvVarName, 99))
+	assert.Equal(test, uint32(10), option.OsLookupEnvUint32(genericEnvVarName, 99))
 }
 
 func TestOsLookupEnvUint32_badValue(test *testing.T) {
@@ -116,17 +116,17 @@ func TestOsLookupEnvUint32_badValue_negativeNumber(test *testing.T) {
 
 func TestOsLookupEnvUint32_notEnvVar(test *testing.T) {
 	test.Parallel()
-	assert.Equal(test, uint(10), option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	assert.Equal(test, uint32(10), option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
 }
 
 func TestOsLookupEnvUint32_useDefault(test *testing.T) {
 	test.Parallel()
-	assert.Equal(test, uint(10), option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	assert.Equal(test, uint32(10), option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
 }
 
 func TestOsLookupEnvUint64(test *testing.T) {
 	test.Setenv(genericEnvVarName, "10")
-	assert.Equal(test, uint(10), option.OsLookupEnvUint64(genericEnvVarName, 99))
+	assert.Equal(test, uint64(10), option.OsLookupEnvUint64(genericEnvVarName, 99))
 }
 
 func TestOsLookupEnvUint64_badValue(test *testing.T) {
@@ -143,12 +143,12 @@ func TestOsLookupEnvUint64_badValue_negativeNumber(test *testing.T) {
 
 func TestOsLookupEnvUint64_notEnvVar(test *testing.T) {
 	test.Parallel()
-	assert.Equal(test, uint(10), option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	assert.Equal(test, uint64(10), option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
 }
 
 func TestOsLookupEnvUint64_useDefault(test *testing.T) {
 	test.Parallel()
-	assert.Equal(test, uint(10), option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	assert.Equal(test, uint64(10), option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
 }
 
 func TestSetDefault(test *testing.T) {
