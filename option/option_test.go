@@ -7,7 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-const genericEnvVarName = "AN_ENVIRONMENT_VARIABLE"
+const (
+	genericEnvVarName          = "AN_ENVIRONMENT_VARIABLE"
+	badEnvironmentVariableName = "BAD_INTEGER_ENVIRONMENT_VARIABLE"
+)
 
 // ----------------------------------------------------------------------------
 // Tests
@@ -40,9 +43,8 @@ func TestOsLookupEnvInt(test *testing.T) {
 }
 
 func TestOsLookupEnvInt_badValue(test *testing.T) {
-	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
-	test.Setenv(environmentVariableName, "not-an-integer")
-	assert.Panics(test, func() { _ = option.OsLookupEnvInt(environmentVariableName, 10) })
+	test.Setenv(badEnvironmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvInt(badEnvironmentVariableName, 10) })
 }
 
 func TestOsLookupEnvInt_notEnvVar(test *testing.T) {
@@ -76,15 +78,13 @@ func TestOsLookupEnvUint(test *testing.T) {
 }
 
 func TestOsLookupEnvUint_badValue(test *testing.T) {
-	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
-	test.Setenv(environmentVariableName, "not-an-integer")
-	assert.Panics(test, func() { _ = option.OsLookupEnvUint(environmentVariableName, 10) })
+	test.Setenv(badEnvironmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint(badEnvironmentVariableName, 10) })
 }
 
 func TestOsLookupEnvUint_badValue_negativeNumber(test *testing.T) {
-	environmentVariableName := "BAD_NEGATIVE_INTEGER_ENVIRONMENT_VARIABLE"
-	test.Setenv(environmentVariableName, "-1")
-	assert.Panics(test, func() { _ = option.OsLookupEnvUint(environmentVariableName, 10) })
+	test.Setenv(badEnvironmentVariableName, "-1")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint(badEnvironmentVariableName, 10) })
 }
 
 func TestOsLookupEnvUint_notEnvVar(test *testing.T) {
@@ -103,9 +103,8 @@ func TestOsLookupEnvUint32(test *testing.T) {
 }
 
 func TestOsLookupEnvUint32_badValue(test *testing.T) {
-	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
-	test.Setenv(environmentVariableName, "not-an-integer")
-	assert.Panics(test, func() { _ = option.OsLookupEnvUint32(environmentVariableName, 10) })
+	test.Setenv(badEnvironmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint32(badEnvironmentVariableName, 10) })
 }
 
 func TestOsLookupEnvUint32_badValue_negativeNumber(test *testing.T) {
@@ -130,9 +129,8 @@ func TestOsLookupEnvUint64(test *testing.T) {
 }
 
 func TestOsLookupEnvUint64_badValue(test *testing.T) {
-	environmentVariableName := "BAD_INTEGER_ENVIRONMENT_VARIABLE"
-	test.Setenv(environmentVariableName, "not-an-integer")
-	assert.Panics(test, func() { _ = option.OsLookupEnvUint64(environmentVariableName, 10) })
+	test.Setenv(badEnvironmentVariableName, "not-an-integer")
+	assert.Panics(test, func() { _ = option.OsLookupEnvUint64(badEnvironmentVariableName, 10) })
 }
 
 func TestOsLookupEnvUint64_badValue_negativeNumber(test *testing.T) {

@@ -26,7 +26,7 @@ var uint32Option = option.ContextVariable{
 	Default: option.OsLookupEnvUint32("SENZING_TOOLS_TEST_UINT_32_OPTION", 10),
 	Envar:   "SENZING_TOOLS_TEST_UINT_32_OPTION",
 	Help:    "Test help. [%s]",
-	Type:    optiontype.Uint,
+	Type:    optiontype.Uint32,
 }
 
 var uint64Option = option.ContextVariable{
@@ -34,7 +34,7 @@ var uint64Option = option.ContextVariable{
 	Default: option.OsLookupEnvUint64("SENZING_TOOLS_TEST_UINT_64_OPTION", 10),
 	Envar:   "SENZING_TOOLS_TEST_UINT_64_OPTION",
 	Help:    "Test help. [%s]",
-	Type:    optiontype.Uint,
+	Type:    optiontype.Uint64,
 }
 
 var contextVariables = []option.ContextVariable{

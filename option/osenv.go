@@ -88,5 +88,5 @@ func OsLookupEnvUint64(envar string, aDefault uint64) uint64 {
 		panic(err)
 	}
 
-	return uint64(result)
+	return result
 }
