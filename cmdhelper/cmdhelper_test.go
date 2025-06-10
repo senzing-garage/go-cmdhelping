@@ -7,16 +7,44 @@ import (
 
 	"github.com/senzing-garage/go-cmdhelping/cmdhelper"
 	"github.com/senzing-garage/go-cmdhelping/option"
+	"github.com/senzing-garage/go-cmdhelping/option/optiontype"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
+var uintOption = option.ContextVariable{
+	Arg:     "uint-option",
+	Default: option.OsLookupEnvUint("SENZING_TOOLS_TEST_UINT_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UINT_OPTION",
+	Help:    "Test help. [%s]",
+	Type:    optiontype.Uint,
+}
+
+var uint32Option = option.ContextVariable{
+	Arg:     "uint-32-option",
+	Default: option.OsLookupEnvUint32("SENZING_TOOLS_TEST_UINT_32_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UINT_32_OPTION",
+	Help:    "Test help. [%s]",
+	Type:    optiontype.Uint32,
+}
+
+var uint64Option = option.ContextVariable{
+	Arg:     "uint-64-option",
+	Default: option.OsLookupEnvUint64("SENZING_TOOLS_TEST_UINT_64_OPTION", 10),
+	Envar:   "SENZING_TOOLS_TEST_UINT_64_OPTION",
+	Help:    "Test help. [%s]",
+	Type:    optiontype.Uint64,
+}
+
 var contextVariables = []option.ContextVariable{
 	option.Configuration,
-	option.EngineLogLevel,
 	option.EnableSwaggerUI,
+	option.EngineLogLevel,
 	option.XtermArguments,
+	uint32Option,
+	uint64Option,
+	uintOption,
 }
 
 // ----------------------------------------------------------------------------

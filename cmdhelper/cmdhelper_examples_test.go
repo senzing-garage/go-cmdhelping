@@ -49,6 +49,21 @@ func ExampleOsLookupEnvString() {
 	// Output: default
 }
 
+func ExampleOsLookupEnvUint() {
+	fmt.Println(option.OsLookupEnvUint("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	// Output: 10
+}
+
+func ExampleOsLookupEnvUint32() {
+	fmt.Println(option.OsLookupEnvUint32("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	// Output: 10
+}
+
+func ExampleOsLookupEnvUint64() {
+	fmt.Println(option.OsLookupEnvUint64("NOT_AN_ENVIRONMENT_VARIABLE", 10))
+	// Output: 10
+}
+
 func ExamplePreRun() {
 	cobraCommand := &cobra.Command{
 		Use:   "example-use",

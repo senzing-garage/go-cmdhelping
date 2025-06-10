@@ -7,4 +7,7 @@ const (
 	Int
 	String
 	StringSlice
+	Uint
+	Uint32
+	Uint64
 )
