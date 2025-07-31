@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning].
 
 ### Added in 0.3.7
 
-- Support for `uint`, `uint32` and `uint64`
+- Added options
 
 ## [0.3.6] - 2025-06-09
 
