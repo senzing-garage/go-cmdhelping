@@ -40,7 +40,7 @@ var uint64Option = option.ContextVariable{
 var contextVariables = []option.ContextVariable{
 	option.Configuration,
 	option.EnableSwaggerUI,
-	option.EngineLogLevel,
+	option.CoreLogLevel,
 	option.XtermArguments,
 	uint32Option,
 	uint64Option,
