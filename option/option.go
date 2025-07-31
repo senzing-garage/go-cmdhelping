@@ -280,6 +280,14 @@ var InputURL = ContextVariable{
 	Type:    optiontype.String,
 }
 
+var IsInDevelopment = option.ContextVariable{
+	Arg:     "is-in-development",
+	Default: option.OsLookupEnvBool("SENZING_TOOLS_IS_IN_DEVELOPMENT", false),
+	Envar:   "SENZING_TOOLS_IS_IN_DEVELOPMENT",
+	Help:    "For testing only. [%s]",
+	Type:    optiontype.Bool,
+}
+
 var JSONOutput = ContextVariable{
 	Arg:     "json-output",
 	Default: OsLookupEnvBool("SENZING_TOOLS_JSON_OUTPUT", false),
