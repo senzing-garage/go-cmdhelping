@@ -43,6 +43,30 @@ var ConfigPath = ContextVariable{
 	Type:    optiontype.String,
 }
 
+var CoreInstanceName = ContextVariable{
+	Arg:     "core-instance-name",
+	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
+	Envar:   "SENZING_TOOLS_CORE_INSTANCE_NAME",
+	Help:    "Identifier sent to Senzing's init() function [%s]",
+	Type:    optiontype.String,
+}
+
+var CoreLogLevel = ContextVariable{
+	Arg:     "core-log-level",
+	Default: OsLookupEnvInt("SENZING_TOOLS_CORE_LOG_LEVEL", 0),
+	Envar:   "SENZING_TOOLS_CORE_LOG_LEVEL",
+	Help:    "Log level sent to Senzing's init() function [%s]",
+	Type:    optiontype.Int,
+}
+
+var CoreSettings = ContextVariable{
+	Arg:     "core-settings",
+	Default: OsLookupEnvString("SENZING_TOOLS_CORE_SETTINGS", ""),
+	Envar:   "SENZING_TOOLS_CORE_SETTINGS",
+	Help:    "JSON string sent to Senzing's init() function [%s]",
+	Type:    optiontype.String,
+}
+
 var Configuration = ContextVariable{
 	Arg:     "configuration",
 	Default: OsLookupEnvString("SENZING_TOOLS_CONFIGURATION", ""),
@@ -155,7 +179,7 @@ var EnableXterm = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
-// Deprecated: Use EngineSettings instead.
+// Deprecated: Use CoreSettings instead.
 var EngineConfigurationJSON = ContextVariable{
 	Arg:     "engine-configuration-json",
 	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_CONFIGURATION_JSON", ""),
@@ -164,6 +188,7 @@ var EngineConfigurationJSON = ContextVariable{
 	Type:    optiontype.String,
 }
 
+// Deprecated: Use CoreInstanceName instead.
 var EngineInstanceName = ContextVariable{
 	Arg:     "engine-instance-name",
 	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
@@ -172,6 +197,7 @@ var EngineInstanceName = ContextVariable{
 	Type:    optiontype.String,
 }
 
+// Deprecated: Use CoreLogLevel instead.
 var EngineLogLevel = ContextVariable{
 	Arg:     "engine-log-level",
 	Default: OsLookupEnvInt("SENZING_TOOLS_ENGINE_LOG_LEVEL", 0),
@@ -180,7 +206,7 @@ var EngineLogLevel = ContextVariable{
 	Type:    optiontype.Int,
 }
 
-// Deprecated: Use EngineInstanceName instead.
+// Deprecated: Use CoreInstanceName instead.
 var EngineModuleName = ContextVariable{
 	Arg:     "engine-module-name",
 	Default: fmt.Sprintf("senzing-tools-%d", time.Now().Unix()),
@@ -189,6 +215,7 @@ var EngineModuleName = ContextVariable{
 	Type:    optiontype.String,
 }
 
+// Deprecated: Use CoreSettings instead.
 var EngineSettings = ContextVariable{
 	Arg:     "engine-settings",
 	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_SETTINGS", ""),
@@ -226,6 +253,14 @@ var HTTPPort = ContextVariable{
 	Default: OsLookupEnvInt("SENZING_TOOLS_HTTP_PORT", senzingtoolsHTTPPort),
 	Envar:   "SENZING_TOOLS_HTTP_PORT",
 	Help:    "Port to serve HTTP [%s]",
+	Type:    optiontype.Int,
+}
+
+var HTTPSPort = ContextVariable{
+	Arg:     "https-port",
+	Default: OsLookupEnvInt("SENZING_TOOLS_HTTPS_PORT", senzingtoolsHTTPPort),
+	Envar:   "SENZING_TOOLS_HTTPS_PORT",
+	Help:    "Port to serve HTTPS [%s]",
 	Type:    optiontype.Int,
 }
 
