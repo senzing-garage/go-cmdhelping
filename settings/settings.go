@@ -15,7 +15,7 @@ func BuildSettings(ctx context.Context, aViper *viper.Viper) (string, error) {
 
 	var err error
 
-	result := aViper.GetString(option.EngineSettings.Arg)
+	result := aViper.GetString(option.CoreSettings.Arg)
 	if len(result) == 0 {
 		optionsList := map[string]option.ContextVariable{
 			"configPath":          option.ConfigPath,
