@@ -35,6 +35,14 @@ var AvoidServe = ContextVariable{
 	Type:    optiontype.Bool,
 }
 
+var BindAddress = ContextVariable{
+	Arg:     "bind-address",
+	Default: OsLookupEnvString("SENZING_TOOLS_BIND_ADDRESS", "0.0.0.0"),
+	Envar:   "SENZING_TOOLS_BIND_ADDRESS",
+	Help:    "IP interface server listens on [%s]",
+	Type:    optiontype.String,
+}
+
 var ConfigPath = ContextVariable{
 	Arg:     "config-path",
 	Default: OsLookupEnvString("SENZING_TOOLS_CONFIG_PATH", ""),
