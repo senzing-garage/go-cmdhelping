@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.3.8] - 2025-10-13
+
+### Added in 0.3.8
+
+- Added `bind-address` option
+
 ## [0.3.7] - 2025-07-31
 
 ### Added in 0.3.7
