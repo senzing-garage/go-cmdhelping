@@ -79,7 +79,7 @@ url := viper.GetString(option.DatabaseURL.Arg)
 ### Configuration Resolution Order
 
 1. Command-line flags (highest priority)
-2. Environment variables (SENZING_TOOLS_* prefix)
+2. Environment variables (SENZING*TOOLS*\* prefix)
 3. Config file (searched in: `~/.senzing-tools/`, `~/`, `/etc/senzing-tools/`)
 4. Default values
 
