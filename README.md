@@ -42,12 +42,12 @@ See [main.go] for an example of use.
 
 ## References
 
-1. [API documentation]
+1. [SDK documentation]
 1. [Development]
 1. [Errors]
 1. [Examples]
 
-[API documentation]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping
+[SDK documentation]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping
 [cmdhelper]: cmdhelper
 [cobra]: https://github.com/spf13/cobra
 [Development]: docs/development.md
