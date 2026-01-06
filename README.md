@@ -8,7 +8,7 @@ Although this GitHub repository may help you understand an approach to using Sen
 it's not considered to be "production ready" and is not considered to be part of the Senzing product.
 Heck, it may not even be appropriate for your application of Senzing!
 
-## :warning: WARNING: go-cmdhelping is still in development :warning: _
+## :warning: WARNING: go-cmdhelping is still in development :warning: \_
 
 At the moment, this is "work-in-progress" with Semantic Versions of `0.n.x`.
 Although it can be reviewed and commented on,
@@ -42,12 +42,12 @@ See [main.go] for an example of use.
 
 ## References
 
-1. [API documentation]
+1. [SDK documentation]
 1. [Development]
 1. [Errors]
 1. [Examples]
 
-[API documentation]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping
+[SDK documentation]: https://pkg.go.dev/github.com/senzing-garage/go-cmdhelping
 [cmdhelper]: cmdhelper
 [cobra]: https://github.com/spf13/cobra
 [Development]: docs/development.md
