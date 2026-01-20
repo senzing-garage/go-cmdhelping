@@ -18,10 +18,10 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBuildAndVerifySettings(test *testing.T) {
-	_ = test
+func TestBuildAndVerifySettings(test *testing.T) { //nolint
 	ctx := test.Context()
 	senzingPath := helperSettings.GetSenzingPath()
+
 	contextVariables := []option.ContextVariable{
 		option.ConfigPath.SetDefault(fmt.Sprintf("%s\\er\\etc", senzingPath)),
 		option.DatabaseURL.SetDefault("sqlite3://na:na@/tmp/sqlite/G2C.db"),
