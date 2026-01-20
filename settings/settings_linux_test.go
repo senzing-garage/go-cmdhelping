@@ -17,8 +17,7 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBuildAndVerifySettings(test *testing.T) {
-	test.Parallel()
+func TestBuildAndVerifySettings(test *testing.T) { //nolint
 	ctx := test.Context()
 	senzingPath := helperSettings.GetSenzingPath()
 

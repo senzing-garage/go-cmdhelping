@@ -14,8 +14,7 @@ import (
 // Test interface functions
 // ----------------------------------------------------------------------------
 
-func TestBuildSettings(test *testing.T) {
-	test.Parallel()
+func TestBuildSettings(test *testing.T) { //nolint
 	ctx := test.Context()
 
 	contextVariables := []option.ContextVariable{
