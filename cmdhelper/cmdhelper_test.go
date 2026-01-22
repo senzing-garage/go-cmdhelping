@@ -62,8 +62,7 @@ func TestInit(test *testing.T) {
 	cmdhelper.Init(cobraCommand, contextVariables)
 }
 
-func TestPreRun(test *testing.T) {
-	test.Parallel()
+func TestPreRun(test *testing.T) { //nolint
 
 	cobraCommand := &cobra.Command{
 		Use:   "test-use",
@@ -74,8 +73,7 @@ func TestPreRun(test *testing.T) {
 	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
 }
 
-func TestPreRun_badConfigurationPath(test *testing.T) {
-	test.Parallel()
+func TestPreRun_badConfigurationPath(test *testing.T) { //nolint
 
 	configurationOption := option.Configuration
 	configurationOption.Default = "/tmp/senzing-tools"
@@ -91,8 +89,7 @@ func TestPreRun_badConfigurationPath(test *testing.T) {
 	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
 }
 
-func TestPreRun_goodConfigurationPath(test *testing.T) {
-	test.Parallel()
+func TestPreRun_goodConfigurationPath(test *testing.T) { //nolint
 	configurationFilePath := filepath.Join(test.TempDir(), "configuration.txt")
 	file, err := os.Create(configurationFilePath)
 	require.NoError(test, err)
