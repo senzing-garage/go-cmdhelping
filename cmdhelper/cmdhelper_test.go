@@ -63,7 +63,6 @@ func TestInit(test *testing.T) {
 }
 
 func TestPreRun(test *testing.T) { //nolint
-
 	cobraCommand := &cobra.Command{
 		Use:   "test-use",
 		Short: "test-short",
@@ -74,7 +73,6 @@ func TestPreRun(test *testing.T) { //nolint
 }
 
 func TestPreRun_badConfigurationPath(test *testing.T) { //nolint
-
 	configurationOption := option.Configuration
 	configurationOption.Default = "/tmp/senzing-tools"
 	contextVariables := []option.ContextVariable{
