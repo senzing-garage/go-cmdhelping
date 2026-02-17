@@ -1,4 +1,4 @@
-package constant
+package constant //revive:disable-line var-naming
 
 // ----------------------------------------------------------------------------
 // Constants

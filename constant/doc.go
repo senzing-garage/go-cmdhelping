@@ -1,4 +1,4 @@
 /*
 Package constant has constants used with cobra.Command.
 */
-package constant
+package constant //revive:disable-line var-naming
