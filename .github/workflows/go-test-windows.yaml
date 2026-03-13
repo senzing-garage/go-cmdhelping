@@ -17,7 +17,6 @@ env:
 permissions: {}
 
 jobs:
-
   sdk-versions:
     runs-on: ubuntu-latest
     outputs:
@@ -25,6 +24,7 @@ jobs:
     steps:
       - id: cfg
         uses: senzing-factory/build-resources/sdk-versions@v4
+
   go-test-windows:
     name: "Go test with Senzing: ${{ matrix.senzingsdk-version }}; OS: windows-latest; Go: ${{ matrix.go }}"
     needs: sdk-versions
@@ -60,9 +60,11 @@ jobs:
           senzingsdk-version: ${{ matrix.senzingsdk-version }}
 
       - name: Run go test
+        env:
+          SENZING_SDK_VERSION: ${{ matrix.senzingsdk-version }}
         run: |
-          go test -json -v -p 1 -coverprofile=cover -covermode=atomic -coverpkg=./... ./... 2>&1 | tee "C:\Temp\gotest-${{ matrix.senzingsdk-version }}.log" | gotestfmt
-          cp cover "cover-${{ matrix.senzingsdk-version }}.out"
+          go test -json -v -p 1 -coverprofile=cover -covermode=atomic -coverpkg=./... ./... 2>&1 | tee "C:\Temp\gotest-${SENZING_SDK_VERSION}.log" | gotestfmt
+          cp cover "cover-${SENZING_SDK_VERSION}.out"
 
       - name: Store coverage file
         uses: actions/upload-artifact@v6
