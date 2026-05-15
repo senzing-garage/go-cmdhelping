@@ -13,11 +13,18 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+const (
+	testHelp  = "Test help. [%s]"
+	testUse   = "test-use"
+	testShort = "test-short"
+	testLong  = "test-long"
+)
+
 var uintOption = option.ContextVariable{
 	Arg:     "uint-option",
 	Default: option.OsLookupEnvUint("SENZING_TOOLS_TEST_UINT_OPTION", 10),
 	Envar:   "SENZING_TOOLS_TEST_UINT_OPTION",
-	Help:    "Test help. [%s]",
+	Help:    testHelp,
 	Type:    optiontype.Uint,
 }
 
@@ -25,7 +32,7 @@ var uint32Option = option.ContextVariable{
 	Arg:     "uint-32-option",
 	Default: option.OsLookupEnvUint32("SENZING_TOOLS_TEST_UINT_32_OPTION", 10),
 	Envar:   "SENZING_TOOLS_TEST_UINT_32_OPTION",
-	Help:    "Test help. [%s]",
+	Help:    testHelp,
 	Type:    optiontype.Uint32,
 }
 
@@ -33,7 +40,7 @@ var uint64Option = option.ContextVariable{
 	Arg:     "uint-64-option",
 	Default: option.OsLookupEnvUint64("SENZING_TOOLS_TEST_UINT_64_OPTION", 10),
 	Envar:   "SENZING_TOOLS_TEST_UINT_64_OPTION",
-	Help:    "Test help. [%s]",
+	Help:    testHelp,
 	Type:    optiontype.Uint64,
 }
 
@@ -55,18 +62,18 @@ func TestInit(test *testing.T) {
 	test.Parallel()
 
 	cobraCommand := &cobra.Command{
-		Use:   "test-use",
-		Short: "test-short",
-		Long:  `test-long`,
+		Use:   testUse,
+		Short: testShort,
+		Long:  testLong,
 	}
 	cmdhelper.Init(cobraCommand, contextVariables)
 }
 
 func TestPreRun(test *testing.T) { //nolint
 	cobraCommand := &cobra.Command{
-		Use:   "test-use",
-		Short: "test-short",
-		Long:  `test-long`,
+		Use:   testUse,
+		Short: testShort,
+		Long:  testLong,
 	}
 	cmdhelper.Init(cobraCommand, contextVariables)
 	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
@@ -79,9 +86,9 @@ func TestPreRun_badConfigurationPath(test *testing.T) { //nolint
 		configurationOption,
 	}
 	cobraCommand := &cobra.Command{
-		Use:   "test-use",
-		Short: "test-short",
-		Long:  `test-long`,
+		Use:   testUse,
+		Short: testShort,
+		Long:  testLong,
 	}
 	cmdhelper.Init(cobraCommand, contextVariables)
 	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)
@@ -100,9 +107,9 @@ func TestPreRun_goodConfigurationPath(test *testing.T) { //nolint
 		configurationOption,
 	}
 	cobraCommand := &cobra.Command{
-		Use:   "test-use",
-		Short: "test-short",
-		Long:  `test-long`,
+		Use:   testUse,
+		Short: testShort,
+		Long:  testLong,
 	}
 	cmdhelper.Init(cobraCommand, contextVariables)
 	cmdhelper.PreRun(cobraCommand, []string{}, "test-cmd", contextVariables)

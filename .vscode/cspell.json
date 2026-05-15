@@ -68,7 +68,8 @@
     "testrecords",
     "truthset",
     "unmarshalling",
-    "wraperror"
+    "wraperror",
+    "zizmor"
   ],
   "ignorePaths": [
     ".dockerignore",

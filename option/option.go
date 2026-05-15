@@ -19,6 +19,8 @@ const (
 	senzingToolsXtermMaxBufferSizeBytes    = 512
 )
 
+const helpInitJSONString = "JSON string sent to Senzing's init() function [%s]"
+
 // Alter the default value of an option.ContextVariable.
 // Useful when including an option.ContextVariable a []option.ContextVariable.
 func (v ContextVariable) SetDefault(newDefault any) ContextVariable {
@@ -71,7 +73,7 @@ var CoreSettings = ContextVariable{
 	Arg:     "core-settings",
 	Default: OsLookupEnvString("SENZING_TOOLS_CORE_SETTINGS", ""),
 	Envar:   "SENZING_TOOLS_CORE_SETTINGS",
-	Help:    "JSON string sent to Senzing's init() function [%s]",
+	Help:    helpInitJSONString,
 	Type:    optiontype.String,
 }
 
@@ -192,7 +194,7 @@ var EngineConfigurationJSON = ContextVariable{
 	Arg:     "engine-configuration-json",
 	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_CONFIGURATION_JSON", ""),
 	Envar:   "SENZING_TOOLS_ENGINE_CONFIGURATION_JSON",
-	Help:    "JSON string sent to Senzing's init() function [%s]",
+	Help:    helpInitJSONString,
 	Type:    optiontype.String,
 }
 
@@ -228,7 +230,7 @@ var EngineSettings = ContextVariable{
 	Arg:     "engine-settings",
 	Default: OsLookupEnvString("SENZING_TOOLS_ENGINE_SETTINGS", ""),
 	Envar:   "SENZING_TOOLS_ENGINE_SETTINGS",
-	Help:    "JSON string sent to Senzing's init() function [%s]",
+	Help:    helpInitJSONString,
 	Type:    optiontype.String,
 }
 
